@@ -108,9 +108,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID12</x:Reference>
+      <x:Reference>__ReferenceID13</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID12" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+    <FlowStep x:Name="__ReferenceID13" sap2010:WorkflowViewState.IdRef="FlowStep_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">465,175</av:Point>
@@ -126,7 +126,7 @@
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID9">
+        <FlowStep x:Name="__ReferenceID8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">605,325</av:Point>
@@ -164,40 +164,40 @@
                   <av:Point x:Key="ShapeLocation">490,480</av:Point>
                   <av:Size x:Key="ShapeSize">60,60</av:Size>
                   <av:PointCollection x:Key="TrueConnector">550,510 810,510 810,610</av:PointCollection>
-                  <av:PointCollection x:Key="FalseConnector">490,510 375,510</av:PointCollection>
+                  <av:PointCollection x:Key="FalseConnector">490,510 315,510</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <FlowDecision.True>
                 <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID1" DisplayName="Flow Switch" Expression="[TransactionItem.SpecificContent(&quot;ItemType&quot;).ToString]" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_2">
                   <FlowSwitch.Default>
-                    <FlowStep x:Name="__ReferenceID3">
+                    <FlowStep x:Name="__ReferenceID11">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">965,455</av:Point>
+                          <av:Point x:Key="ShapeLocation">1135,455</av:Point>
                           <av:Size x:Key="ShapeSize">110,70</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Stop" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Unknow type: &quot; + TransactionItem.SpecificContent(&quot;ItemType&quot;).ToString]">
+                      <TerminateWorkflow DisplayName="Stop with error" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_1" Reason="[&quot;Unknow type: &quot; + TransactionItem.SpecificContent(&quot;ItemType&quot;).ToString]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                      </ui:LogMessage>
+                      </TerminateWorkflow>
                     </FlowStep>
                   </FlowSwitch.Default>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">780,610</av:Point>
                       <av:Size x:Key="ShapeSize">60,60</av:Size>
-                      <av:PointCollection x:Key="Default">840,640 870,640 870,490 965,490</av:PointCollection>
+                      <av:PointCollection x:Key="Default">840,640 870,640 870,490 1135,490</av:PointCollection>
                       <av:PointCollection x:Key="CreateEventConnector">810,670 810,700 700,700 700,835</av:PointCollection>
                       <av:PointCollection x:Key="ChangeEventConnector">780,640 460,640 460,835</av:PointCollection>
                       <av:PointCollection x:Key="AddUserConnector">840,640 1135,640</av:PointCollection>
                       <av:PointCollection x:Key="RemoveUserConnector">840,640 870,640 870,860 1035,860</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <FlowStep x:Key="CreateEvent" x:Name="__ReferenceID4">
+                  <FlowStep x:Key="CreateEvent" x:Name="__ReferenceID3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">645,835</av:Point>
@@ -213,7 +213,7 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:LogMessage>
                     <FlowStep.Next>
-                      <FlowStep x:Name="__ReferenceID10">
+                      <FlowStep x:Name="__ReferenceID9">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">645,975</av:Point>
@@ -223,7 +223,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementVirtualEvent" ContinueOnError="False" DisplayName="Get Event" EntityId="7519c6a4-3f9f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_1" OutputEntity="[CurrentVirtualEvent]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;VirtualEvent_ID&quot;).ToString)]" TimeoutInMs="30000" />
                         <FlowStep.Next>
-                          <FlowStep x:Name="__ReferenceID8">
+                          <FlowStep x:Name="__ReferenceID7">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <av:Point x:Key="ShapeLocation">645,1105</av:Point>
@@ -244,7 +244,7 @@
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:InvokeWorkflowFile>
                             <FlowStep.Next>
-                              <FlowStep x:Name="__ReferenceID11">
+                              <FlowStep x:Name="__ReferenceID10">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">645,1235</av:Point>
@@ -265,11 +265,12 @@
                       </FlowStep>
                     </FlowStep.Next>
                   </FlowStep>
-                  <FlowStep x:Key="ChangeEvent" x:Name="__ReferenceID5">
+                  <FlowStep x:Key="ChangeEvent" x:Name="__ReferenceID4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">405,835</av:Point>
                         <av:Size x:Key="ShapeSize">110,70</av:Size>
+                        <av:PointCollection x:Key="ConnectorLocation">460,905 460,965</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Changing event&quot;]">
@@ -279,8 +280,20 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:LogMessage>
+                    <FlowStep.Next>
+                      <FlowStep x:Name="__ReferenceID12">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">405,965</av:Point>
+                            <av:Size x:Key="ShapeSize">110,70</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">540.6483011937557,1094.04 540.6483011937557,1154.04</av:PointCollection>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementVirtualEvent" ContinueOnError="False" DisplayName="Get Event" EntityId="7519c6a4-3f9f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_3" OutputEntity="[CurrentVirtualEvent]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;VirtualEvent_ID&quot;).ToString)]" TimeoutInMs="30000" />
+                      </FlowStep>
+                    </FlowStep.Next>
                   </FlowStep>
-                  <FlowStep x:Key="AddUser" x:Name="__ReferenceID6">
+                  <FlowStep x:Key="AddUser" x:Name="__ReferenceID5">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">1135,605</av:Point>
@@ -295,7 +308,7 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:LogMessage>
                   </FlowStep>
-                  <FlowStep x:Key="RemoveUser" x:Name="__ReferenceID7">
+                  <FlowStep x:Key="RemoveUser" x:Name="__ReferenceID6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">1035,825</av:Point>
@@ -316,7 +329,7 @@
                 <FlowStep x:Name="__ReferenceID2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">265,475</av:Point>
+                      <av:Point x:Key="ShapeLocation">205,475</av:Point>
                       <av:Size x:Key="ShapeSize">110,70</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -368,5 +381,6 @@
     <x:Reference>__ReferenceID9</x:Reference>
     <x:Reference>__ReferenceID10</x:Reference>
     <x:Reference>__ReferenceID11</x:Reference>
+    <x:Reference>__ReferenceID12</x:Reference>
   </Flowchart>
 </Activity>
