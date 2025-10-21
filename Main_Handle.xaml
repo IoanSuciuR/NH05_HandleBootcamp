@@ -134,16 +134,21 @@
               <av:PointCollection x:Key="ConnectorLocation">660,395 660,425 520,425 520,480</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:AddTransactionItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" TransactionItem="{x:Null}" DisplayName="Add Transaction Item" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="AddTransactionItem_1" QueueType="NewHire_VirtualEventQueue">
+          <ui:AddTransactionItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Transaction Item" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="AddTransactionItem_1" QueueType="NewHireVirtualEventQueue" TransactionItem="[TransactionItem]">
             <ui:AddTransactionItem.TransactionInformation>
               <InArgument x:TypeArguments="x:String" x:Key="VirtualEvent_ID">6587F0C3-81AD-F011-8E61-000D3AB20E79</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="ItemType">CreateEvent</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="UserID" />
-              <InArgument x:TypeArguments="x:String" x:Key="Name" />
-              <InArgument x:TypeArguments="x:String" x:Key="Link" />
-              <InArgument x:TypeArguments="x:String" x:Key="Time">2025-10-22 14:15 - 2025-10-23 14:15 (UTC+2)</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Timezone" />
-              <InArgument x:TypeArguments="x:String" x:Key="Agenda" />
+              <InArgument x:TypeArguments="x:String" x:Key="UserID">
+                <Literal x:TypeArguments="x:String" Value="" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Name">Virtual event October</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Link">
+                <Literal x:TypeArguments="x:String" Value="" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Time">2025-10-22 09:00 - 2025-10-23 14:15 (UTC+2)</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Agenda">
+                <Literal x:TypeArguments="x:String" Value="" />
+              </InArgument>
             </ui:AddTransactionItem.TransactionInformation>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
