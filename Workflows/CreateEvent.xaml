@@ -111,7 +111,7 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreatEvent" sap:VirtualizedContainerService.HintSize="1280,1984" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CreatEvent" sap:VirtualizedContainerService.HintSize="1367,2449" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="EmailBody" />
       <Variable x:TypeArguments="umcm:O365EventItem" Name="OutlookEvent" />
@@ -150,7 +150,7 @@
               <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " - " + EndDate.ToString("dd") + " " + StartDate.ToString("MM"))]</InArgument>
+              <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " - " + EndDate.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -166,7 +166,7 @@
               <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Start–End Time + Time Zone]", StartTime.ToString("hh:mm") + " - " + EndTime.ToString("hh:mm") + System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Time").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
+              <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Start–End Time + Time Zone]", StartTime.ToString("HH:mm") + " - " + EndTime.ToString("HH:mm") + " "+ System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Time").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -196,9 +196,9 @@
         <InArgument x:TypeArguments="x:Boolean">[if(StartDate=EndDate,False,True)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[StartDate &lt;= EndDate]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="518,899" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[StartDate &lt;= EndDate]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="518,1364" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
       <ui:InterruptibleDoWhile.Body>
-        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="484,753" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="484,1218" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -218,7 +218,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <If Condition="[Cbool(in_Config(&quot;TestMode&quot;))]" DisplayName="If Test Mode" sap:VirtualizedContainerService.HintSize="450,303" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[Cbool(in_Config(&quot;TestMode&quot;))]" DisplayName="If Test Mode" sap:VirtualizedContainerService.HintSize="450,768" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
