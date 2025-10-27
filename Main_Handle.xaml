@@ -146,7 +146,7 @@
               </InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="Name">TestVirtual2</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="Link">www.link2.com</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Time">2025-10-30 10:00 - 2025-10-31 04:00 (UTC+2)</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Time">2025-10-30 10:00 - 2025-10-31 16:00 (UTC+2)</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="Agenda">
                 <Literal x:TypeArguments="x:String" Value="" />
               </InArgument>

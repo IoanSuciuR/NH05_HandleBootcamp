@@ -58,7 +58,8 @@
                           <li style="margin:0 0 6px 0;">Format: Two ½-day virtual sessions</li>
                           <li style="margin:0 0 6px 0;">Dates: <strong>[Add Dates]</strong></li>
                           <li style="margin:0 0 6px 0;">Time: <strong>[Add Start–End Time + Time Zone]</strong></li>
-                          <li style="margin:0 0 6px 0;">Location: Virtual (Teams/Zoom) — join link is included in this calendar invite</li>
+                          <li style="margin:0 0 6px 0;">Location: Virtual (Teams/Zoom) — <strong><a href="<<link>>" style="color:#005EB8; text-decoration:none;">Join Meeting</a></strong></li>
+
                         </ul>
 
                         <!-- Who -->
