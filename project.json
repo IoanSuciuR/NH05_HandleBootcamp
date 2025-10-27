@@ -9,7 +9,8 @@
     "UiPath.IntegrationService.Activities": "[1.17.0]",
     "UiPath.Mail.Activities": "[2.4.10]",
     "UiPath.MicrosoftOffice365.Activities": "[3.4.10]",
-    "UiPath.System.Activities": "[24.10.8]"
+    "UiPath.System.Activities": "[24.10.8]",
+    "UiPath.WebAPI.Activities": "[1.21.1]"
   },
   "webServices": [],
   "entitiesStores": [

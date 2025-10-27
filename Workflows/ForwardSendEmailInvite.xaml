@@ -1,0 +1,293 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SendEmailInvite" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umac="clr-namespace:UiPath.MicrosoftOffice365.Activities.Calendar;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umace="clr-namespace:UiPath.MicrosoftOffice365.Activities.Calendar.Enums;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umacm="clr-namespace:UiPath.MicrosoftOffice365.Activities.Calendar.Models;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umame="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Enums;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umcm="clr-namespace:UiPath.MicrosoftOffice365.Calendar.Models;assembly=UiPath.MicrosoftOffice365" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_EventID" Type="InArgument(x:String)" />
+    <x:Property Name="in_To" Type="InArgument(x:String)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>SendEmailInvite_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Calendar.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Calendar.Filters</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Calendar.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Filters</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Calendar.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Calendar.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Calendar</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.MicrosoftOffice365</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail.Enums</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Activities.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="SendEmailInvite" sap:VirtualizedContainerService.HintSize="1068,1710" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="umcm:O365EventItem" Name="EventItem" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,949" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <umac:GetEventListConnections BrowserGroupId="{x:Reference __ReferenceID1}" Calendar="{x:Null}" CalendarIdBackup="{x:Reference __ReferenceID0}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Filter="{x:Null}" QueryFilter="{x:Null}" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Calendar" BrowserCalendarGroupId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk8AAAA" BrowserCalendarId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk9AAAA" CalendarInputMode="Browse" ConnectionId="37658459-0194-4e76-931e-30084d01e523" DisplayName="Get Event List" EndDate="[DateTime.Today.AddDays(1)]" EventList="[EventList]" FilterSelectionMode="ConditionBuilder" sap:VirtualizedContainerService.HintSize="382,286" sap2010:WorkflowViewState.IdRef="GetEventListConnections_2" MaxResults="50" PreferredReturnTimezone="UTC" StartDate="[DateTime.Today]" UseConnectionService="True">
+            <umac:GetEventListConnections.CalendarArgument>
+              <umacm:CalendarArgument ConnectionDescriptor="{x:Null}" Existing="{x:Null}" BrowserCalendarGroupId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk8AAAA" BrowserCalendarId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk9AAAA" BrowserFriendlyName="Calendar" ConnectionKey="37658459-0194-4e76-931e-30084d01e523" InputMode="Browse">
+                <umacm:CalendarArgument.Backup>
+                  <usau:BackupSlot x:TypeArguments="umace:ECalendarMode" x:Name="__ReferenceID0" StoredValue="Browse">
+                    <usau:BackupSlot.BackupValues>
+                      <scg:Dictionary x:TypeArguments="umace:ECalendarMode, scg:List(x:Object)" />
+                    </usau:BackupSlot.BackupValues>
+                  </usau:BackupSlot>
+                </umacm:CalendarArgument.Backup>
+                <umacm:CalendarArgument.BrowserGroupId>
+                  <InArgument x:TypeArguments="x:String" x:Name="__ReferenceID1" />
+                </umacm:CalendarArgument.BrowserGroupId>
+              </umacm:CalendarArgument>
+            </umac:GetEventListConnections.CalendarArgument>
+            <umac:GetEventListConnections.FilterSelectionBackup>
+              <usau:BackupSlot x:TypeArguments="umace:EventFilterMode" StoredValue="ConditionBuilder">
+                <usau:BackupSlot.BackupValues>
+                  <scg:Dictionary x:TypeArguments="umace:EventFilterMode, scg:List(x:Object)" />
+                </usau:BackupSlot.BackupValues>
+              </usau:BackupSlot>
+            </umac:GetEventListConnections.FilterSelectionBackup>
+          </umac:GetEventListConnections>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;a&quot;]" />
+          <umac:CreateEventConnections ArgumentAttachments="{x:Null}" Attachments="{x:Null}" BrowserGroupId="{x:Reference __ReferenceID3}" Calendar="{x:Null}" CalendarIdBackup="{x:Reference __ReferenceID2}" Categories="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" EndDateTime="{x:Null}" Location="{x:Null}" MeetingUrl="{x:Null}" OptionalAttendees="{x:Null}" Recurrence="{x:Null}" RequiredAttendees="{x:Null}" ResourceAttendees="{x:Null}" Result="{x:Null}" StartDateTime="{x:Null}" Title="{x:Null}" AllDayEvent="False" AttachmentInputMode="Existing" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Calendar" BrowserCalendarGroupId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk8AAAA" BrowserCalendarId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk9AAAA" CalendarInputMode="Browse" ConnectionId="37658459-0194-4e76-931e-30084d01e523" DisplayName="Create Event" sap:VirtualizedContainerService.HintSize="382,430" sap2010:WorkflowViewState.IdRef="CreateEventConnections_1" Importance="Normal" IsOnlineMeeting="False" PreferredReturnTimezone="GTB Standard Time" Sensitivity="Normal" ShowAs="Busy" Timezone="GTB Standard Time" UseConnectionService="True">
+            <umac:CreateEventConnections.AttachmentsBackup>
+              <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
+                <usau:BackupSlot.BackupValues>
+                  <scg:Dictionary x:TypeArguments="umame:AttachmentInputMode, scg:List(x:Object)" />
+                </usau:BackupSlot.BackupValues>
+              </usau:BackupSlot>
+            </umac:CreateEventConnections.AttachmentsBackup>
+            <umac:CreateEventConnections.CalendarArgument>
+              <umacm:CalendarArgument ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" Existing="{x:Null}" BrowserCalendarGroupId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk8AAAA" BrowserCalendarId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk9AAAA" BrowserFriendlyName="Calendar" InputMode="Browse">
+                <umacm:CalendarArgument.Backup>
+                  <usau:BackupSlot x:TypeArguments="umace:ECalendarMode" x:Name="__ReferenceID2" StoredValue="Browse">
+                    <usau:BackupSlot.BackupValues>
+                      <scg:Dictionary x:TypeArguments="umace:ECalendarMode, scg:List(x:Object)" />
+                    </usau:BackupSlot.BackupValues>
+                  </usau:BackupSlot>
+                </umacm:CalendarArgument.Backup>
+                <umacm:CalendarArgument.BrowserGroupId>
+                  <InArgument x:TypeArguments="x:String" x:Name="__ReferenceID3" />
+                </umacm:CalendarArgument.BrowserGroupId>
+              </umacm:CalendarArgument>
+            </umac:CreateEventConnections.CalendarArgument>
+            <umac:CreateEventConnections.Description>
+              <InArgument x:TypeArguments="x:String" />
+            </umac:CreateEventConnections.Description>
+          </umac:CreateEventConnections>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Forwarding event to &quot; + in_To]" />
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For each Event" sap:VirtualizedContainerService.HintSize="518,1457" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_EventID.Split({&quot;|&quot;},StringSplitOptions.RemoveEmptyEntries)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="currentEvent" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="484,1320" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[Cbool(in_Config(&quot;TestMode&quot;))]" sap:VirtualizedContainerService.HintSize="450,1260" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,578" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <umac:GetEventByIdConnections BrowserCalendarGroupId="{x:Reference __ReferenceID5}" BrowserGroupId="{x:Reference __ReferenceID6}" Calendar="{x:Null}" CalendarIdBackup="{x:Reference __ReferenceID4}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Calendar" BrowserCalendarId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk9AAAA" CalendarInputMode="Browse" ConnectionId="37658459-0194-4e76-931e-30084d01e523" DisplayName="Get Event By Id" Event="[EventItem]" EventId="[currentEvent]" sap:VirtualizedContainerService.HintSize="382,235" sap2010:WorkflowViewState.IdRef="GetEventByIdConnections_2" UseConnectionService="True">
+                    <umac:GetEventByIdConnections.CalendarArgument>
+                      <umacm:CalendarArgument ConnectionDescriptor="{x:Null}" Existing="{x:Null}" BrowserCalendarId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk9AAAA" BrowserFriendlyName="Calendar" ConnectionKey="37658459-0194-4e76-931e-30084d01e523" InputMode="Browse">
+                        <umacm:CalendarArgument.Backup>
+                          <usau:BackupSlot x:TypeArguments="umace:ECalendarMode" x:Name="__ReferenceID4" StoredValue="Browse">
+                            <usau:BackupSlot.BackupValues>
+                              <scg:Dictionary x:TypeArguments="umace:ECalendarMode, scg:List(x:Object)" />
+                            </usau:BackupSlot.BackupValues>
+                          </usau:BackupSlot>
+                        </umacm:CalendarArgument.Backup>
+                        <umacm:CalendarArgument.BrowserCalendarGroupId>
+                          <InArgument x:TypeArguments="x:String" x:Name="__ReferenceID5" />
+                        </umacm:CalendarArgument.BrowserCalendarGroupId>
+                        <umacm:CalendarArgument.BrowserGroupId>
+                          <InArgument x:TypeArguments="x:String" x:Name="__ReferenceID6" />
+                        </umacm:CalendarArgument.BrowserGroupId>
+                      </umacm:CalendarArgument>
+                    </umac:GetEventByIdConnections.CalendarArgument>
+                  </umac:GetEventByIdConnections>
+                  <umac:ForwardEventConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ApplyOnSeries="False" Attendees="[{in_Config(&quot;ManagementTestAddress&quot;).ToString}]" AuthScopesInvalid="False" ConnectionId="37658459-0194-4e76-931e-30084d01e523" DisplayName="Forward Event" Event="[EventItem]" sap:VirtualizedContainerService.HintSize="382,235" sap2010:WorkflowViewState.IdRef="ForwardEventConnections_2" UseConnectionService="True">
+                    <umac:ForwardEventConnections.Comment>
+                      <InArgument x:TypeArguments="x:String" />
+                    </umac:ForwardEventConnections.Comment>
+                  </umac:ForwardEventConnections>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,286" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <umac:ForwardEventConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ApplyOnSeries="False" Attendees="[{in_Config(&quot;ManagementTestAddress&quot;).ToString}]" AuthScopesInvalid="False" ConnectionId="37658459-0194-4e76-931e-30084d01e523" DisplayName="Irina" Event="[EventItem]" sap:VirtualizedContainerService.HintSize="382,226" sap2010:WorkflowViewState.IdRef="ForwardEventConnections_3" UseConnectionService="True">
+                          <umac:ForwardEventConnections.Comment>
+                            <InArgument x:TypeArguments="x:String" />
+                          </umac:ForwardEventConnections.Comment>
+                        </umac:ForwardEventConnections>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,521" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <umac:GetEventByIdConnections BrowserCalendarGroupId="{x:Reference __ReferenceID8}" BrowserGroupId="{x:Reference __ReferenceID9}" Calendar="{x:Null}" CalendarIdBackup="{x:Reference __ReferenceID7}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Calendar" BrowserCalendarId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk9AAAA" CalendarInputMode="Browse" ConnectionId="37658459-0194-4e76-931e-30084d01e523" DisplayName="Get Event By Id" Event="[EventItem]" EventId="[currentEvent]" sap:VirtualizedContainerService.HintSize="382,235" sap2010:WorkflowViewState.IdRef="GetEventByIdConnections_3" UseConnectionService="True">
+                    <umac:GetEventByIdConnections.CalendarArgument>
+                      <umacm:CalendarArgument ConnectionDescriptor="{x:Null}" Existing="{x:Null}" BrowserCalendarId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk9AAAA" BrowserFriendlyName="Calendar" ConnectionKey="37658459-0194-4e76-931e-30084d01e523" InputMode="Browse">
+                        <umacm:CalendarArgument.Backup>
+                          <usau:BackupSlot x:TypeArguments="umace:ECalendarMode" x:Name="__ReferenceID7" StoredValue="Browse">
+                            <usau:BackupSlot.BackupValues>
+                              <scg:Dictionary x:TypeArguments="umace:ECalendarMode, scg:List(x:Object)" />
+                            </usau:BackupSlot.BackupValues>
+                          </usau:BackupSlot>
+                        </umacm:CalendarArgument.Backup>
+                        <umacm:CalendarArgument.BrowserCalendarGroupId>
+                          <InArgument x:TypeArguments="x:String" x:Name="__ReferenceID8" />
+                        </umacm:CalendarArgument.BrowserCalendarGroupId>
+                        <umacm:CalendarArgument.BrowserGroupId>
+                          <InArgument x:TypeArguments="x:String" x:Name="__ReferenceID9" />
+                        </umacm:CalendarArgument.BrowserGroupId>
+                      </umacm:CalendarArgument>
+                    </umac:GetEventByIdConnections.CalendarArgument>
+                  </umac:GetEventByIdConnections>
+                  <umac:ForwardEventConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ApplyOnSeries="False" Attendees="[{in_To}]" AuthScopesInvalid="False" ConnectionId="37658459-0194-4e76-931e-30084d01e523" DisplayName="Forward Event" Event="[EventItem]" sap:VirtualizedContainerService.HintSize="382,226" sap2010:WorkflowViewState.IdRef="ForwardEventConnections_1" UseConnectionService="True">
+                    <umac:ForwardEventConnections.Comment>
+                      <InArgument x:TypeArguments="x:String" />
+                    </umac:ForwardEventConnections.Comment>
+                  </umac:ForwardEventConnections>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+  </Sequence>
+</Activity>

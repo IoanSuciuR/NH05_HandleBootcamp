@@ -149,23 +149,23 @@
         <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_EndDate">[EndDate]</OutArgument>
         <OutArgument x:TypeArguments="s:TimeOnly" x:Key="out_StartTime">[StartTime]</OutArgument>
         <OutArgument x:TypeArguments="s:TimeOnly" x:Key="out_EndTime">[EndTime]</OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_TimeAsString">[in_TransactionItem.SpecificContent("Time").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TimeAsString">[in_CurrentEvent.DatetimeInterval]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_TimeZone">[TimeZone]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:ReadTextFile File="{x:Null}" Content="[EmailBody]" DisplayName="Read Event Body" FileName="Data\Templates\VirtualEventHTMLTemplate.txt" sap:VirtualizedContainerService.HintSize="518,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="518,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="518,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " - " + EndDate.ToString("dd") + " " + StartDate.ToString("MM"))]</InArgument>
+              <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " - " + EndDate.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
             </ui:AssignOperation.To>
@@ -173,12 +173,12 @@
               <InArgument x:TypeArguments="x:String">[EmailBody.Replace("&lt;&lt;link&gt;&gt;",in_TransactionItem.SpecificContent("Link").ToString)]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Start–End Time + Time Zone]", StartTime.ToString("hh:mm") + " - " + EndTime.ToString("hh:mm") + System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Time").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
+              <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Start–End Time + Time Zone]", StartTime.ToString("HH:mm") + " - " + EndTime.ToString("HH:mm") + " "+ System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Time").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -223,7 +223,7 @@
               <OutArgument x:TypeArguments="x:String">[EventName]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[if(MultiDayEvent, in_TransactionItem.SpecificContent("Name").ToString + " - Day " + DayCounter.ToString ,in_TransactionItem.SpecificContent("Name").ToString )]</InArgument>
+              <InArgument x:TypeArguments="x:String">[if(MultiDayEvent, in_CurrentEvent.Name + " - Day " + DayCounter.ToString ,in_TransactionItem.SpecificContent("Name").ToString )]</InArgument>
             </Assign.Value>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">

@@ -151,18 +151,18 @@
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:ReadTextFile File="{x:Null}" Content="[EmailBody]" DisplayName="Read Event Body" FileName="Data\Templates\VirtualEventHTMLTemplate.txt" sap:VirtualizedContainerService.HintSize="518,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="518,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="518,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " - " + EndDate.ToString("dd") + " " + StartDate.ToString("MM"))]</InArgument>
+              <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " - " + EndDate.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
             </ui:AssignOperation.To>
@@ -170,12 +170,12 @@
               <InArgument x:TypeArguments="x:String">[EmailBody.Replace("&lt;&lt;link&gt;&gt;",in_TransactionItem.SpecificContent("Link").ToString)]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Start–End Time + Time Zone]", StartTime.ToString("hh:mm") + " - " + EndTime.ToString("hh:mm") + System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Time").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
+              <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Start–End Time + Time Zone]", StartTime.ToString("HH:mm") + " - " + EndTime.ToString("HH:mm") + " "+ System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Time").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -296,7 +296,7 @@
                     </umacm:CalendarArgument>
                   </umac:GetEventByIdConnections.CalendarArgument>
                 </umac:GetEventByIdConnections>
-                <umac:ModifyEventConnections AddArgumentAttachments="{x:Null}" ConnectionAccountName="{x:Null}" OverwriteArgumentAttachments="{x:Null}" RemoveArgumentAttachments="{x:Null}" AddAttachmentInputMode="Existing" AddAttachments="{x:Null}" AddCategories="{x:Null}" AddOptionalAttendees="{x:Null}" AddRequiredAttendees="{x:Null}" AddResourceAttendees="{x:Null}" AllDayEvent="{x:Null}" AuthScopesInvalid="False" ChangeAttachments="AddRemove" ChangeCategories="NoChange" ChangeOptionalAttendees="NoChange" ChangeRequiredAttendees="NoChange" ChangeResourceAttendees="NoChange" ConnectionId="37658459-0194-4e76-931e-30084d01e523" ContinueOnError="{x:Null}" Description="[EmailBody]" DisplayName="Update Event" EndDateTime="[StartDate.ToDateTime(EndTime)]" Event="[OutlookEvent]" sap:VirtualizedContainerService.HintSize="382,430" sap2010:WorkflowViewState.IdRef="ModifyEventConnections_3" Importance="{x:Null}" IsOnlineMeeting="False" Location="{x:Null}" MeetingUrl="{x:Null}" OverwriteAttachmentInputMode="Existing" OverwriteAttachments="{x:Null}" OverwriteCategories="{x:Null}" OverwriteOptionalAttendees="{x:Null}" OverwriteRequiredAttendees="{x:Null}" OverwriteResourceAttendees="{x:Null}" PreferredReturnTimezone="UTC" Recurrence="{x:Null}" RemoveAttachmentInputMode="Existing" RemoveAttachments="{x:Null}" RemoveCategories="{x:Null}" RemoveOptionalAttendees="{x:Null}" RemoveRequiredAttendees="{x:Null}" RemoveResourceAttendees="{x:Null}" Result="{x:Null}" Sensitivity="{x:Null}" ShowAs="{x:Null}" StartDateTime="[StartDate.ToDateTime(StartTime)]" Timezone="[TimeZone]" Title="[EventName]" UseConnectionService="True">
+                <umac:ModifyEventConnections AddArgumentAttachments="{x:Null}" AddAttachments="{x:Null}" AddCategories="{x:Null}" AddOptionalAttendees="{x:Null}" AddRequiredAttendees="{x:Null}" AddResourceAttendees="{x:Null}" AllDayEvent="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Importance="{x:Null}" Location="{x:Null}" MeetingUrl="{x:Null}" OverwriteArgumentAttachments="{x:Null}" OverwriteAttachments="{x:Null}" OverwriteCategories="{x:Null}" OverwriteOptionalAttendees="{x:Null}" OverwriteRequiredAttendees="{x:Null}" OverwriteResourceAttendees="{x:Null}" Recurrence="{x:Null}" RemoveArgumentAttachments="{x:Null}" RemoveAttachments="{x:Null}" RemoveCategories="{x:Null}" RemoveOptionalAttendees="{x:Null}" RemoveRequiredAttendees="{x:Null}" RemoveResourceAttendees="{x:Null}" Result="{x:Null}" Sensitivity="{x:Null}" ShowAs="{x:Null}" AddAttachmentInputMode="Existing" AuthScopesInvalid="False" ChangeAttachments="AddRemove" ChangeCategories="NoChange" ChangeOptionalAttendees="NoChange" ChangeRequiredAttendees="NoChange" ChangeResourceAttendees="NoChange" ConnectionId="37658459-0194-4e76-931e-30084d01e523" Description="[EmailBody]" DisplayName="Update Event" EndDateTime="[StartDate.ToDateTime(EndTime)]" Event="[OutlookEvent]" sap:VirtualizedContainerService.HintSize="382,430" sap2010:WorkflowViewState.IdRef="ModifyEventConnections_3" IsOnlineMeeting="False" OverwriteAttachmentInputMode="Existing" PreferredReturnTimezone="UTC" RemoveAttachmentInputMode="Existing" StartDateTime="[StartDate.ToDateTime(StartTime)]" Timezone="[TimeZone]" Title="[EventName]" UseConnectionService="True">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -355,7 +355,7 @@
             </umac:GetEventByIdConnections.CalendarArgument>
           </umac:GetEventByIdConnections>
           <ui:PathExists Exists="{x:Null}" DisplayName="Path Exists" sap:VirtualizedContainerService.HintSize="382,147" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="C:\Users\Asus\Desktop\Agenda1.pdf" PathType="File" Resource="[FileRef]" />
-          <umac:ModifyEventConnections AddArgumentAttachments="{x:Null}" ConnectionAccountName="{x:Null}" OverwriteArgumentAttachments="{x:Null}" RemoveArgumentAttachments="{x:Null}" AddAttachmentInputMode="Existing" AddAttachments="[{FileRef}]" AddCategories="{x:Null}" AddOptionalAttendees="{x:Null}" AddRequiredAttendees="{x:Null}" AddResourceAttendees="{x:Null}" AllDayEvent="{x:Null}" AuthScopesInvalid="False" ChangeAttachments="AddRemove" ChangeCategories="NoChange" ChangeOptionalAttendees="NoChange" ChangeRequiredAttendees="NoChange" ChangeResourceAttendees="NoChange" ConnectionId="37658459-0194-4e76-931e-30084d01e523" ContinueOnError="{x:Null}" Description="[EmailBody]" DisplayName="Update Event" EndDateTime="{x:Null}" Event="[EventO]" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="ModifyEventConnections_1" Importance="{x:Null}" IsOnlineMeeting="False" Location="{x:Null}" MeetingUrl="{x:Null}" OverwriteAttachmentInputMode="Existing" OverwriteAttachments="{x:Null}" OverwriteCategories="{x:Null}" OverwriteOptionalAttendees="{x:Null}" OverwriteRequiredAttendees="{x:Null}" OverwriteResourceAttendees="{x:Null}" PreferredReturnTimezone="UTC" Recurrence="{x:Null}" RemoveAttachmentInputMode="Existing" RemoveAttachments="{x:Null}" RemoveCategories="{x:Null}" RemoveOptionalAttendees="{x:Null}" RemoveRequiredAttendees="{x:Null}" RemoveResourceAttendees="{x:Null}" Result="{x:Null}" Sensitivity="{x:Null}" ShowAs="{x:Null}" StartDateTime="{x:Null}" Timezone="{x:Null}" Title="{x:Null}" UseConnectionService="True">
+          <umac:ModifyEventConnections AddArgumentAttachments="{x:Null}" AddCategories="{x:Null}" AddOptionalAttendees="{x:Null}" AddRequiredAttendees="{x:Null}" AddResourceAttendees="{x:Null}" AllDayEvent="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" EndDateTime="{x:Null}" Importance="{x:Null}" Location="{x:Null}" MeetingUrl="{x:Null}" OverwriteArgumentAttachments="{x:Null}" OverwriteAttachments="{x:Null}" OverwriteCategories="{x:Null}" OverwriteOptionalAttendees="{x:Null}" OverwriteRequiredAttendees="{x:Null}" OverwriteResourceAttendees="{x:Null}" Recurrence="{x:Null}" RemoveArgumentAttachments="{x:Null}" RemoveAttachments="{x:Null}" RemoveCategories="{x:Null}" RemoveOptionalAttendees="{x:Null}" RemoveRequiredAttendees="{x:Null}" RemoveResourceAttendees="{x:Null}" Result="{x:Null}" Sensitivity="{x:Null}" ShowAs="{x:Null}" StartDateTime="{x:Null}" Timezone="{x:Null}" Title="{x:Null}" AddAttachmentInputMode="Existing" AddAttachments="[{FileRef}]" AuthScopesInvalid="False" ChangeAttachments="AddRemove" ChangeCategories="NoChange" ChangeOptionalAttendees="NoChange" ChangeRequiredAttendees="NoChange" ChangeResourceAttendees="NoChange" ConnectionId="37658459-0194-4e76-931e-30084d01e523" Description="[EmailBody]" DisplayName="Update Event" Event="[EventO]" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="ModifyEventConnections_1" IsOnlineMeeting="False" OverwriteAttachmentInputMode="Existing" PreferredReturnTimezone="UTC" RemoveAttachmentInputMode="Existing" UseConnectionService="True">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
