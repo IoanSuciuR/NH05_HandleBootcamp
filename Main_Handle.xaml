@@ -144,11 +144,9 @@
               <InArgument x:TypeArguments="x:String" x:Key="UserID">
                 <Literal x:TypeArguments="x:String" Value="" />
               </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Name">Virtual event October</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Link">
-                <Literal x:TypeArguments="x:String" Value="" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Time">2025-10-22 09:00 - 2025-10-23 14:15 (UTC+2)</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Name">TestVirtual2</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Link">www.link2.com</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Time">2025-10-30 10:00 - 2025-10-31 04:00 (UTC+2)</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="Agenda">
                 <Literal x:TypeArguments="x:String" Value="" />
               </InArgument>
