@@ -1,7 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="SendSlackInvitation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:n="clr-namespace:NH04_HandleVirtualEvent;assembly=DataService.NH04_HandleVirtualEvent" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_To" Type="InArgument(x:String)" />
-    <x:Property Name="in_CurrentEvent" Type="InArgument(n:NewHireManagementVirtualEvent)" />
+    <x:Property Name="in_CurrentEvent" Type="InArgument(n:NewHireManagementBootcamp)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <VisualBasic.Settings>
@@ -94,7 +94,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendSlackInvitation" sap:VirtualizedContainerService.HintSize="1210,1136.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendSlackInvitation" sap:VirtualizedContainerService.HintSize="1500,1136.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:DateOnly" Name="StartDate" />
       <Variable x:TypeArguments="s:DateOnly" Name="EndDate" />
@@ -119,7 +119,7 @@
         <OutArgument x:TypeArguments="x:String" x:Key="out_TimeZone">[TimeZone]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:ReadTextFile File="{x:Null}" Content="[SlackTemplate]" DisplayName="Read Event Body" FileName="Data\Templates\VirtualEventRemovedTemplate.txt" sap:VirtualizedContainerService.HintSize="479,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <ui:ReadTextFile File="{x:Null}" Content="[SlackTemplate]" DisplayName="Read Event Body" FileName="Data\Templates\BootcampRemovedTemplate.txt" sap:VirtualizedContainerService.HintSize="479,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
     <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="479,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">

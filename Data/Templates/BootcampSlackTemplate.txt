@@ -14,14 +14,14 @@
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "Congratulations! As part of the *Sales New Hire onboarding bootcamp*, you are invited to our *in-person Immersion Workshop* taking place *<<date>>* in Bucharest, Romania."
+        "text": "Congratulations! As part of the *Sales New Hire onboarding bootcamp*, you are invited to our *in-person Immersion Workshop* taking place *<<dates>>* in Bucharest, Romania."
       }
     },
     {
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "📍 *Location:* UiPath Office, Ground Floor - Training Room, Bucharest\n🕒 *Time:* <<start–end time + time zone>>"
+        "text": "📍 *Location:* UiPath Office, Ground Floor - Training Room, Bucharest\n🕒 *Time:* <<time>>"
       }
     },
     {
@@ -50,14 +50,14 @@
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Timing (for travel planning):*\n• Starts at *2:00 PM* on *<<startDate>>* → arrive by Monday morning *<<arrivalDate>>*\n• Return flights: *Friday, <<endDate>>*"
+        "text": "*Timing (for travel planning):*\n• Starts at *2:00 PM* on *<<startDate>>* → arrive by Monday morning *<<startDate>>*\n• Return flights: *Friday, <<endDate>>*"
       }
     },
     {
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Pre-work (required):*\n• Complete your <<<faststartLink}|FAST START e-learnings>\n• Attend the Virtual Event\n• Slack reminders will be sent weekly leading up to the event"
+        "text": "*Pre-work (required):*\n• Complete your <<faststartLink>>|FAST START e-learnings>\n• Attend the Virtual Event\n• Slack reminders will be sent weekly leading up to the event"
       }
     },
     {

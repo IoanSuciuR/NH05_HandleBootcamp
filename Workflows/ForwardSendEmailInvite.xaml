@@ -106,7 +106,7 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendEmailInvite" sap:VirtualizedContainerService.HintSize="1068,1710" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendEmailInvite" sap:VirtualizedContainerService.HintSize="1197,1710" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="umcm:O365EventItem" Name="EventItem" />
     </Sequence.Variables>
@@ -258,7 +258,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <umac:GetEventByIdConnections BrowserCalendarGroupId="{x:Reference __ReferenceID8}" BrowserGroupId="{x:Reference __ReferenceID9}" Calendar="{x:Null}" CalendarIdBackup="{x:Reference __ReferenceID7}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Calendar" BrowserCalendarId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk9AAAA" CalendarInputMode="Browse" ConnectionId="37658459-0194-4e76-931e-30084d01e523" DisplayName="Get Event By Id" Event="[EventItem]" EventId="[currentEvent]" sap:VirtualizedContainerService.HintSize="382,235" sap2010:WorkflowViewState.IdRef="GetEventByIdConnections_3" UseConnectionService="True">
+                  <umac:GetEventByIdConnections BrowserCalendarGroupId="{x:Reference __ReferenceID8}" BrowserGroupId="{x:Reference __ReferenceID9}" Calendar="{x:Null}" CalendarIdBackup="{x:Reference __ReferenceID7}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Calendar" BrowserCalendarId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk9AAAA" CalendarInputMode="Browse" ConnectionId="57574e62-4112-4c1a-9f2b-65d378f24ff2" DisplayName="Get Event By Id" Event="[EventItem]" EventId="[currentEvent]" sap:VirtualizedContainerService.HintSize="382,235" sap2010:WorkflowViewState.IdRef="GetEventByIdConnections_3" UseConnectionService="True">
                     <umac:GetEventByIdConnections.CalendarArgument>
                       <umacm:CalendarArgument ConnectionDescriptor="{x:Null}" Existing="{x:Null}" BrowserCalendarId="AQMkADAwATNiZmYAZC01OTdmLTBiY2ItMDACLTAwCgBGAAADxExCE9ylDU6EZ2gxnp9vSwcAHn6zVSP330e9JTbBNb1PLwAAAgEGAAAAHn6zVSP330e9JTbBNb1PLwAAAgk9AAAA" BrowserFriendlyName="Calendar" ConnectionKey="37658459-0194-4e76-931e-30084d01e523" InputMode="Browse">
                         <umacm:CalendarArgument.Backup>
@@ -277,7 +277,7 @@
                       </umacm:CalendarArgument>
                     </umac:GetEventByIdConnections.CalendarArgument>
                   </umac:GetEventByIdConnections>
-                  <umac:ForwardEventConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ApplyOnSeries="False" Attendees="[{in_To}]" AuthScopesInvalid="False" ConnectionId="37658459-0194-4e76-931e-30084d01e523" DisplayName="Forward Event" Event="[EventItem]" sap:VirtualizedContainerService.HintSize="382,226" sap2010:WorkflowViewState.IdRef="ForwardEventConnections_1" UseConnectionService="True">
+                  <umac:ForwardEventConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ApplyOnSeries="False" Attendees="[{in_To}]" AuthScopesInvalid="False" ConnectionId="57574e62-4112-4c1a-9f2b-65d378f24ff2" DisplayName="Forward Event" Event="[EventItem]" sap:VirtualizedContainerService.HintSize="382,226" sap2010:WorkflowViewState.IdRef="ForwardEventConnections_1" UseConnectionService="True">
                     <umac:ForwardEventConnections.Comment>
                       <InArgument x:TypeArguments="x:String" />
                     </umac:ForwardEventConnections.Comment>
