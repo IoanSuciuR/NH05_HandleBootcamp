@@ -1,0 +1,37 @@
+{
+  "channel": "<<channel>>",
+  "text": "Update: Immersion Workshop Participation",
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "😊 Update – Immersion Workshop Participation",
+        "emoji": true
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Hi,\n\nYou no longer need to participate in the *Sales New Hire Immersion Workshop* scheduled for *<<dates>>* in Bucharest."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Thank you for your understanding! If you have any questions, please contact <mailto:irina.catauta@uipath.com|irina.catauta@uipath.com>."
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Sales Enablement Team*  |  UiPath Academy"
+        }
+      ]
+    }
+  ]
+}

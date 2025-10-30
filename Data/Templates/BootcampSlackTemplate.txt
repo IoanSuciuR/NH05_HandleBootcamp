@@ -1,0 +1,76 @@
+{
+  "channel": "<<channel>>",
+  "text": "New Hire - Immersion Workshop (INTERNATIONAL)",
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "🎓 New Hire – Immersion Workshop (INTERNATIONAL)",
+        "emoji": true
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Congratulations! As part of the *Sales New Hire onboarding bootcamp*, you are invited to our *in-person Immersion Workshop* taking place *<<date>>* in Bucharest, Romania."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "📍 *Location:* UiPath Office, Ground Floor - Training Room, Bucharest\n🕒 *Time:* <<start–end time + time zone>>"
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Action (mandatory):*\n• Accept this calendar invite\n• Book your flight + hotel (details shared in your Slack class channel)\n• Upload your travel details below to secure your seat\n• If unable to attend, email <mailto:irina.catauta@uipath.com|irina.catauta@uipath.com> and CC your manager"
+      }
+    },
+    {
+      "type": "actions",
+      "elements": [
+        {
+          "type": "button",
+          "text": {
+            "type": "plain_text",
+            "text": "✈️ Upload Documents Here",
+            "emoji": true
+          },
+          "url": "<<appURL>>",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Timing (for travel planning):*\n• Starts at *2:00 PM* on *<<startDate>>* → arrive by Monday morning *<<arrivalDate>>*\n• Return flights: *Friday, <<endDate>>*"
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Pre-work (required):*\n• Complete your <<<faststartLink}|FAST START e-learnings>\n• Attend the Virtual Event\n• Slack reminders will be sent weekly leading up to the event"
+      }
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Irina Cățăuța*  |  Sales Enablement  |  <mailto:irina.catauta@uipath.com|irina.catauta@uipath.com>"
+        }
+      ]
+    }
+  ]
+}

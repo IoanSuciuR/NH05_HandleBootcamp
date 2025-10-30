@@ -1,0 +1,42 @@
+<html>
+  <body style="font-family: 'Segoe UI', Arial, sans-serif; color: #333333; line-height: 1.6;">
+    <h2 style="color:#FF6A00;">New Hire - Immersion Workshop (INTERNATIONAL)</h2>
+    <p><strong>Date:</strong> [Add Date] &nbsp; | &nbsp; <strong>Time:</strong> [Add Start–End Time + Time Zone]</p>
+    <p><strong>Location:</strong> UiPath Office, Ground Floor - Training Room, Bucharest, Romania</p>
+
+    <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+    <p>Congratulations! As part of the <strong>Sales New Hire onboarding bootcamp</strong>, you are invited to our <strong>in-person Immersion Workshop</strong> taking place <strong>[Add Date]</strong> in Bucharest, Romania. The event will be hosted at the UiPath Office, Ground Floor - Training Room.</p>
+
+    <p>Please treat this as your <strong>personal invitation</strong> (do not forward), as space is limited.</p>
+
+    <h3 style="color:#FF6A00;">ACTION (mandatory):</h3>
+    <ul>
+      <li>Accept this calendar invite.</li>
+      <li>Book your flight + hotel ASAP (hotel suggestions will be shared in the class Slack channel – you will be added by me).</li>
+      <li>Upload your travel details (flight + hotel) in the <a href="<<appURL>>" style="color:#FF6A00; text-decoration:none; font-weight:bold;">Onboarding app</a> to secure your seat.</li>
+      <li>If you are unable to attend, email <a href="mailto:irina.catauta@uipath.com">irina.catauta@uipath.com</a> and CC your manager with the reason.</li>
+    </ul>
+
+    <h3 style="color:#FF6A00;">Timing (travel planning):</h3>
+    <ul>
+      <li>The bootcamp starts at <strong>[2:00 PM]</strong> on <strong>[Add StartDate]</strong> → plan to arrive by Monday morning <strong>[Add Date]</strong>.</li>
+      <li>Return flights should be scheduled for Friday, <strong>[Add EndDate]</strong>.</li>
+      <li><em>Tip:</em> use Friday morning for intros with local colleagues, stakeholders, and support functions.</li>
+    </ul>
+
+    <h3 style="color:#FF6A00;">Pre-work (required):</h3>
+    <ul>
+      <li>Complete your <a href="<<faststartLink>>" style="color:#FF6A00; text-decoration:none; font-weight:bold;">FAST START e-learnings</a> before the workshop.</li>
+      <li>Attend the Virtual Event.</li>
+      <li>You will receive Slack notifications, and completion will be monitored weekly leading up to the event.</li>
+    </ul>
+
+    <p>We look forward to seeing you in Bucharest!</p>
+    <p>If you have any questions, please reach out. We’ll keep in touch on Slack.</p>
+
+    <p>Have a nice day,</p>
+    <p><strong>Irina</strong><br>
+    <a href="mailto:irina.catauta@uipath.com">irina.catauta@uipath.com</a></p>
+  </body>
+</html>
