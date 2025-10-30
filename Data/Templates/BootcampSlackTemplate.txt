@@ -54,12 +54,12 @@
       }
     },
     {
-      "type": "section",
-      "text": {
-        "type": "mrkdwn",
-        "text": "*Pre-work (required):*\n• Complete your <<faststartLink>>|FAST START e-learnings>\n• Attend the Virtual Event\n• Slack reminders will be sent weekly leading up to the event"
-      }
-    },
+  "type": "section",
+  "text": {
+    "type": "mrkdwn",
+    "text": "*Pre-work (required):*\n• Complete your <<<faststartLink>>}|FAST START e-learnings>\n• Attend the Virtual Event\n• Slack reminders will be sent weekly leading up to the event"
+  }
+},
     {
       "type": "divider"
     },
