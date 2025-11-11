@@ -94,7 +94,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendSlackInvitation" sap:VirtualizedContainerService.HintSize="1500,1136.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendSlackInvitation" sap:VirtualizedContainerService.HintSize="1177,1136.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:DateOnly" Name="StartDate" />
       <Variable x:TypeArguments="s:DateOnly" Name="EndDate" />
@@ -112,11 +112,21 @@
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEventDates - Invoke Workflow File (Workflows\GetEventDates.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\GetEventDates.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_StartDate">[StartDate]</OutArgument>
-        <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_EndDate">[EndDate]</OutArgument>
+        <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_EndDate" />
         <OutArgument x:TypeArguments="s:TimeOnly" x:Key="out_StartTime">[StartTime]</OutArgument>
-        <OutArgument x:TypeArguments="s:TimeOnly" x:Key="out_EndTime">[EndTime]</OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_TimeAsString">[in_CurrentEvent.DatetimeInterval]</InArgument>
+        <OutArgument x:TypeArguments="s:TimeOnly" x:Key="out_EndTime" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_TimeAsString">[in_CurrentEvent.Day1Interval]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_TimeZone">[TimeZone]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEventDates - Invoke Workflow File (Workflows\GetEventDates.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\GetEventDates.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_StartDate" />
+        <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_EndDate">[EndDate]</OutArgument>
+        <OutArgument x:TypeArguments="s:TimeOnly" x:Key="out_StartTime" />
+        <OutArgument x:TypeArguments="s:TimeOnly" x:Key="out_EndTime">[EndTime]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TimeAsString">[in_CurrentEvent.Day4Interval]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_TimeZone" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:ReadTextFile File="{x:Null}" Content="[SlackTemplate]" DisplayName="Read Event Body" FileName="Data\Templates\BootcampRemovedTemplate.txt" sap:VirtualizedContainerService.HintSize="479,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
