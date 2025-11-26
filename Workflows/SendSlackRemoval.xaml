@@ -94,7 +94,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendSlackInvitation" sap:VirtualizedContainerService.HintSize="1177,1136.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendSlackInvitation" sap:VirtualizedContainerService.HintSize="1418,1161.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:DateOnly" Name="StartDate" />
       <Variable x:TypeArguments="s:DateOnly" Name="EndDate" />

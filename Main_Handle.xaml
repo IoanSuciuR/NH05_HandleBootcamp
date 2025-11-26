@@ -96,7 +96,7 @@
       <AssemblyReference>NewHireBootcampQueue.CqOie2uVwtK1M8ABZ46q7EN2</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Main_Handle" sap:VirtualizedContainerService.HintSize="1177,1136.04" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Main_Handle" sap:VirtualizedContainerService.HintSize="1506,1136.04" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
       <Variable x:TypeArguments="ui:QueueItem" Name="TransactionItem" />
@@ -115,9 +115,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID49</x:Reference>
+      <x:Reference>__ReferenceID50</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID49" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+    <FlowStep x:Name="__ReferenceID50" sap2010:WorkflowViewState.IdRef="FlowStep_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">465,175</av:Point>
@@ -133,7 +133,7 @@
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID1">
+        <FlowStep x:Name="__ReferenceID2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">465,325</av:Point>
@@ -152,7 +152,7 @@
             </sap:WorkflowViewStateService.ViewState>
           </ui:GetQueueItem>
           <FlowStep.Next>
-            <FlowDecision x:Name="__ReferenceID2" Condition="[TransactionItem IsNot Nothing]" DisplayName="Item to process?" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+            <FlowDecision x:Name="__ReferenceID3" Condition="[TransactionItem IsNot Nothing]" DisplayName="Item to process?" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -163,9 +163,9 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <FlowDecision.True>
-                <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID3" DisplayName="Flow Switch" Expression="[TransactionItem.SpecificContent(&quot;ItemType&quot;).ToString]" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_2">
+                <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID4" DisplayName="Flow Switch" Expression="[TransactionItem.SpecificContent(&quot;ItemType&quot;).ToString]" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_2">
                   <FlowSwitch.Default>
-                    <FlowStep x:Name="__ReferenceID10">
+                    <FlowStep x:Name="__ReferenceID11">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">1135,455</av:Point>
@@ -194,7 +194,7 @@
                       <av:PointCollection x:Key="RemoveUserFromEvent_ForGoodConnector">840,640 870,640 870,1100 1335,1100</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <FlowStep x:Key="CreateEvent" x:Name="__ReferenceID5">
+                  <FlowStep x:Key="CreateEvent" x:Name="__ReferenceID6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">645,835</av:Point>
@@ -210,7 +210,7 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:LogMessage>
                     <FlowStep.Next>
-                      <FlowStep x:Name="__ReferenceID8">
+                      <FlowStep x:Name="__ReferenceID9">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">645,975</av:Point>
@@ -220,7 +220,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementBootcamp" ContinueOnError="False" DisplayName="Get Event" EntityId="3fd36113-419f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_1" OutputEntity="[CurrentBootcamp]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;Bootcamp_ID&quot;).ToString)]" TimeoutInMs="30000" />
                         <FlowStep.Next>
-                          <FlowStep x:Name="__ReferenceID7">
+                          <FlowStep x:Name="__ReferenceID8">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <av:Point x:Key="ShapeLocation">645,1105</av:Point>
@@ -241,7 +241,7 @@
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:InvokeWorkflowFile>
                             <FlowStep.Next>
-                              <FlowStep x:Name="__ReferenceID9" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+                              <FlowStep x:Name="__ReferenceID10" sap2010:WorkflowViewState.IdRef="FlowStep_1">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">645,1235</av:Point>
@@ -257,7 +257,7 @@
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:LogMessage>
                                 <FlowStep.Next>
-                                  <FlowStep x:Name="__ReferenceID37">
+                                  <FlowStep x:Name="__ReferenceID38">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">645,1355</av:Point>
@@ -277,11 +277,12 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:InvokeWorkflowFile>
                                     <FlowStep.Next>
-                                      <FlowStep x:Name="__ReferenceID34">
+                                      <FlowStep x:Name="__ReferenceID35">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <av:Point x:Key="ShapeLocation">645,1465</av:Point>
                                             <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                            <av:PointCollection x:Key="ConnectorLocation">700,1535 700,1660 1015,1660</av:PointCollection>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                         <uda:UpdateEntityRecord x:TypeArguments="n:NewHireManagementBootcamp" InputEntity="{x:Null}" IsInRecordView="{x:Null}" OutputEntity="{x:Null}" VisibleDynamicPropertiesInfo="{x:Null}" ContinueOnError="False" DisplayName="Update Entity Record" EntityId="3fd36113-419f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="UpdateEntityRecord`1_12" InputEntityInFieldView="[new NH04_HandleVirtualEvent.NewHireManagementBootcamp() With {  .EventID = String.Join(&quot;|&quot;, OutlookEvents),  .SlackChannelID = ChannelID, .Id = CurrentBootcamp.id }]" RecordId="[CurrentBootcamp.id]" TimeoutInMs="30000">
@@ -304,6 +305,29 @@
                                             </udam:RecordState>
                                           </uda:UpdateEntityRecord.State>
                                         </uda:UpdateEntityRecord>
+                                        <FlowStep.Next>
+                                          <FlowStep x:Name="__ReferenceID0">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <av:Point x:Key="ShapeLocation">1015,1625</av:Point>
+                                                <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:SetTransactionStatus ContinueOnError="{x:Null}" Reason="{x:Null}" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Set Transaction Status" ErrorType="Business" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_1" Status="Successful" TransactionItem="[TransactionItem]">
+                                              <ui:SetTransactionStatus.Analytics>
+                                                <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+                                              </ui:SetTransactionStatus.Analytics>
+                                              <ui:SetTransactionStatus.Output>
+                                                <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+                                              </ui:SetTransactionStatus.Output>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:SetTransactionStatus>
+                                          </FlowStep>
+                                        </FlowStep.Next>
                                       </FlowStep>
                                     </FlowStep.Next>
                                   </FlowStep>
@@ -315,7 +339,7 @@
                       </FlowStep>
                     </FlowStep.Next>
                   </FlowStep>
-                  <FlowStep x:Key="UpdateAgenda" x:Name="__ReferenceID13">
+                  <FlowStep x:Key="UpdateAgenda" x:Name="__ReferenceID14">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">85,835</av:Point>
@@ -331,7 +355,7 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:LogMessage>
                     <FlowStep.Next>
-                      <FlowStep x:Name="__ReferenceID14">
+                      <FlowStep x:Name="__ReferenceID15">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">85,965</av:Point>
@@ -341,11 +365,12 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementBootcamp" ContinueOnError="False" DisplayName="Get Event" EntityId="3fd36113-419f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_4" OutputEntity="[CurrentBootcamp]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;Bootcamp_ID&quot;).ToString)]" TimeoutInMs="30000" />
                         <FlowStep.Next>
-                          <FlowStep x:Name="__ReferenceID15">
+                          <FlowStep x:Name="__ReferenceID16">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <av:Point x:Key="ShapeLocation">85,1125</av:Point>
                                 <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">140,1195 140,1660 1015,1660</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add Agenda" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\AddAgenda.xaml">
@@ -360,12 +385,15 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:InvokeWorkflowFile>
+                            <FlowStep.Next>
+                              <x:Reference>__ReferenceID0</x:Reference>
+                            </FlowStep.Next>
                           </FlowStep>
                         </FlowStep.Next>
                       </FlowStep>
                     </FlowStep.Next>
                   </FlowStep>
-                  <FlowStep x:Key="RemoveUserFromEvent" x:Name="__ReferenceID6">
+                  <FlowStep x:Key="RemoveUserFromEvent" x:Name="__ReferenceID7">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">1335,905</av:Point>
@@ -381,7 +409,7 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:LogMessage>
                     <FlowStep.Next>
-                      <FlowStep x:Name="__ReferenceID23">
+                      <FlowStep x:Name="__ReferenceID24">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">1545,905</av:Point>
@@ -391,7 +419,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementBootcamp" ContinueOnError="False" DisplayName="Get Event" EntityId="3fd36113-419f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_11" OutputEntity="[CurrentBootcamp]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;Bootcamp_ID&quot;).ToString)]" TimeoutInMs="30000" />
                         <FlowStep.Next>
-                          <FlowStep x:Name="__ReferenceID22">
+                          <FlowStep x:Name="__ReferenceID23">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <av:Point x:Key="ShapeLocation">1725,905</av:Point>
@@ -401,7 +429,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                             <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementEmployee" ContinueOnError="False" DisplayName="Get User" EntityId="c6b1668d-3e9f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_10" OutputEntity="[CurrentUser]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;UserID&quot;).ToString)]" TimeoutInMs="30000" />
                             <FlowStep.Next>
-                              <FlowStep x:Name="__ReferenceID33">
+                              <FlowStep x:Name="__ReferenceID34">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">1975,905</av:Point>
@@ -411,7 +439,7 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementBootcamp" ContinueOnError="False" DisplayName="Get Previous Event" EntityId="3fd36113-419f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_13" OutputEntity="[PreviousBootcamp]" RecordId="[Guid.Parse(CurrentUser.BootCampSessionID)]" TimeoutInMs="30000" />
                                 <FlowStep.Next>
-                                  <FlowStep x:Name="__ReferenceID32">
+                                  <FlowStep x:Name="__ReferenceID33">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">2145,905</av:Point>
@@ -435,7 +463,7 @@
                                       </uda:UpdateEntityRecord.State>
                                     </uda:UpdateEntityRecord>
                                     <FlowStep.Next>
-                                      <FlowStep x:Name="__ReferenceID31">
+                                      <FlowStep x:Name="__ReferenceID32">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <av:Point x:Key="ShapeLocation">2345,905</av:Point>
@@ -493,7 +521,7 @@
                                           </uda:UpdateEntityRecord.State>
                                         </uda:UpdateEntityRecord>
                                         <FlowStep.Next>
-                                          <FlowStep x:Name="__ReferenceID36">
+                                          <FlowStep x:Name="__ReferenceID37">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <av:Point x:Key="ShapeLocation">2545,905</av:Point>
@@ -514,16 +542,17 @@
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:InvokeWorkflowFile>
                                             <FlowStep.Next>
-                                              <FlowStep x:Name="__ReferenceID38">
+                                              <FlowStep x:Name="__ReferenceID39">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <av:Point x:Key="ShapeLocation">2745,905</av:Point>
                                                     <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                                    <av:PointCollection x:Key="ConnectorLocation">2855,940 2885,940 2885,1660 1125,1660</av:PointCollection>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Remove User From Channel" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Workflows\RemoveUserFromChannel.xaml">
                                                   <ui:InvokeWorkflowFile.Arguments>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_UserEmail">apereanu03@gmail.com</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_UserEmail">[CurrentUser.Email]</InArgument>
                                                     <InArgument x:TypeArguments="x:String" x:Key="in_ChannelID">[CurrentBootcamp.SlackChannelID]</InArgument>
                                                   </ui:InvokeWorkflowFile.Arguments>
                                                   <sap:WorkflowViewStateService.ViewState>
@@ -532,6 +561,9 @@
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                 </ui:InvokeWorkflowFile>
+                                                <FlowStep.Next>
+                                                  <x:Reference>__ReferenceID0</x:Reference>
+                                                </FlowStep.Next>
                                               </FlowStep>
                                             </FlowStep.Next>
                                           </FlowStep>
@@ -547,7 +579,7 @@
                       </FlowStep>
                     </FlowStep.Next>
                   </FlowStep>
-                  <FlowStep x:Key="AddUserToEvent" x:Name="__ReferenceID16">
+                  <FlowStep x:Key="AddUserToEvent" x:Name="__ReferenceID17">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">1335,575</av:Point>
@@ -563,7 +595,7 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:LogMessage>
                     <FlowStep.Next>
-                      <FlowStep x:Name="__ReferenceID18">
+                      <FlowStep x:Name="__ReferenceID19">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">1545,575</av:Point>
@@ -573,7 +605,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementBootcamp" ContinueOnError="False" DisplayName="Get Event" EntityId="3fd36113-419f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_5" OutputEntity="[CurrentBootcamp]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;Bootcamp_ID&quot;).ToString)]" TimeoutInMs="30000" />
                         <FlowStep.Next>
-                          <FlowStep x:Name="__ReferenceID19">
+                          <FlowStep x:Name="__ReferenceID20">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <av:Point x:Key="ShapeLocation">1725,575</av:Point>
@@ -583,7 +615,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                             <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementEmployee" ContinueOnError="False" DisplayName="Get User" EntityId="c6b1668d-3e9f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_6" OutputEntity="[CurrentUser]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;UserID&quot;).ToString)]" TimeoutInMs="30000" />
                             <FlowStep.Next>
-                              <FlowStep x:Name="__ReferenceID24">
+                              <FlowStep x:Name="__ReferenceID25">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">1975,575</av:Point>
@@ -604,7 +636,7 @@
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:InvokeWorkflowFile>
                                 <FlowStep.Next>
-                                  <FlowStep x:Name="__ReferenceID26">
+                                  <FlowStep x:Name="__ReferenceID27">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">2165,575</av:Point>
@@ -653,7 +685,7 @@
                                       </uda:UpdateEntityRecord.State>
                                     </uda:UpdateEntityRecord>
                                     <FlowStep.Next>
-                                      <FlowStep x:Name="__ReferenceID35">
+                                      <FlowStep x:Name="__ReferenceID36">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <av:Point x:Key="ShapeLocation">2435,575</av:Point>
@@ -677,7 +709,7 @@
                                           </uda:UpdateEntityRecord.State>
                                         </uda:UpdateEntityRecord>
                                         <FlowStep.Next>
-                                          <FlowStep x:Name="__ReferenceID0">
+                                          <FlowStep x:Name="__ReferenceID1">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <av:Point x:Key="ShapeLocation">2895,575</av:Point>
@@ -698,16 +730,17 @@
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:InvokeWorkflowFile>
                                             <FlowStep.Next>
-                                              <FlowStep x:Name="__ReferenceID40">
+                                              <FlowStep x:Name="__ReferenceID41">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <av:Point x:Key="ShapeLocation">3145,575</av:Point>
                                                     <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                                    <av:PointCollection x:Key="ConnectorLocation">3255,610 3284.9999999999995,610 3284.9999999999995,1660 1125,1660</av:PointCollection>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add User to Channel" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Workflows\AddUserToChannel.xaml">
                                                   <ui:InvokeWorkflowFile.Arguments>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_UserEmail">apereanu03@gmail.com</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_UserEmail">[CurrentUser.Email]</InArgument>
                                                     <InArgument x:TypeArguments="x:String" x:Key="in_ChannelID">[CurrentBootcamp.SlackChannelID]</InArgument>
                                                   </ui:InvokeWorkflowFile.Arguments>
                                                   <sap:WorkflowViewStateService.ViewState>
@@ -716,6 +749,9 @@
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                 </ui:InvokeWorkflowFile>
+                                                <FlowStep.Next>
+                                                  <x:Reference>__ReferenceID0</x:Reference>
+                                                </FlowStep.Next>
                                               </FlowStep>
                                             </FlowStep.Next>
                                           </FlowStep>
@@ -731,7 +767,7 @@
                       </FlowStep>
                     </FlowStep.Next>
                   </FlowStep>
-                  <FlowStep x:Key="ChangeUserEvent" x:Name="__ReferenceID17">
+                  <FlowStep x:Key="ChangeUserEvent" x:Name="__ReferenceID18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">1335,735</av:Point>
@@ -747,7 +783,7 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:LogMessage>
                     <FlowStep.Next>
-                      <FlowStep x:Name="__ReferenceID20">
+                      <FlowStep x:Name="__ReferenceID21">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">1545,735</av:Point>
@@ -757,7 +793,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementBootcamp" ContinueOnError="False" DisplayName="Get Event" EntityId="3fd36113-419f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_8" OutputEntity="[CurrentBootcamp]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;Bootcamp_ID&quot;).ToString)]" TimeoutInMs="30000" />
                         <FlowStep.Next>
-                          <FlowStep x:Name="__ReferenceID21">
+                          <FlowStep x:Name="__ReferenceID22">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <av:Point x:Key="ShapeLocation">1725,735</av:Point>
@@ -767,7 +803,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                             <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementEmployee" ContinueOnError="False" DisplayName="Get User" EntityId="c6b1668d-3e9f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_9" OutputEntity="[CurrentUser]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;UserID&quot;).ToString)]" TimeoutInMs="30000" />
                             <FlowStep.Next>
-                              <FlowStep x:Name="__ReferenceID25" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+                              <FlowStep x:Name="__ReferenceID26" sap2010:WorkflowViewState.IdRef="FlowStep_1">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">1975,735</av:Point>
@@ -788,7 +824,7 @@
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:InvokeWorkflowFile>
                                 <FlowStep.Next>
-                                  <FlowStep x:Name="__ReferenceID30">
+                                  <FlowStep x:Name="__ReferenceID31">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">2145,735</av:Point>
@@ -798,7 +834,7 @@
                                     </sap:WorkflowViewStateService.ViewState>
                                     <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementBootcamp" ContinueOnError="False" DisplayName="Get Previous Event" EntityId="3fd36113-419f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_12" OutputEntity="[PreviousBootcamp]" RecordId="[Guid.Parse(CurrentUser.BootCampSessionID)]" TimeoutInMs="30000" />
                                     <FlowStep.Next>
-                                      <FlowStep x:Name="__ReferenceID29">
+                                      <FlowStep x:Name="__ReferenceID30">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <av:Point x:Key="ShapeLocation">2315,735</av:Point>
@@ -822,7 +858,7 @@
                                           </uda:UpdateEntityRecord.State>
                                         </uda:UpdateEntityRecord>
                                         <FlowStep.Next>
-                                          <FlowStep x:Name="__ReferenceID27">
+                                          <FlowStep x:Name="__ReferenceID28">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <av:Point x:Key="ShapeLocation">2515,735</av:Point>
@@ -871,7 +907,7 @@
                                               </uda:UpdateEntityRecord.State>
                                             </uda:UpdateEntityRecord>
                                             <FlowStep.Next>
-                                              <FlowStep x:Name="__ReferenceID28" sap2010:WorkflowViewState.IdRef="FlowStep_2">
+                                              <FlowStep x:Name="__ReferenceID29" sap2010:WorkflowViewState.IdRef="FlowStep_2">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <av:Point x:Key="ShapeLocation">2735,735</av:Point>
@@ -895,7 +931,7 @@
                                                   </uda:UpdateEntityRecord.State>
                                                 </uda:UpdateEntityRecord>
                                                 <FlowStep.Next>
-                                                  <FlowStep x:Name="__ReferenceID39">
+                                                  <FlowStep x:Name="__ReferenceID40">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <av:Point x:Key="ShapeLocation">2895,735</av:Point>
@@ -905,7 +941,7 @@
                                                     </sap:WorkflowViewStateService.ViewState>
                                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Remove User From Channel" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Workflows\RemoveUserFromChannel.xaml">
                                                       <ui:InvokeWorkflowFile.Arguments>
-                                                        <InArgument x:TypeArguments="x:String" x:Key="in_UserEmail">apereanu03@gmail.com</InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="in_UserEmail">[CurrentUser.Email]</InArgument>
                                                         <InArgument x:TypeArguments="x:String" x:Key="in_ChannelID">[PreviousBootcamp.SlackChannelID]</InArgument>
                                                       </ui:InvokeWorkflowFile.Arguments>
                                                       <sap:WorkflowViewStateService.ViewState>
@@ -915,7 +951,7 @@
                                                       </sap:WorkflowViewStateService.ViewState>
                                                     </ui:InvokeWorkflowFile>
                                                     <FlowStep.Next>
-                                                      <x:Reference>__ReferenceID0</x:Reference>
+                                                      <x:Reference>__ReferenceID1</x:Reference>
                                                     </FlowStep.Next>
                                                   </FlowStep>
                                                 </FlowStep.Next>
@@ -934,7 +970,7 @@
                       </FlowStep>
                     </FlowStep.Next>
                   </FlowStep>
-                  <FlowStep x:Key="RemoveUserFromEvent_ForGood" x:Name="__ReferenceID48">
+                  <FlowStep x:Key="RemoveUserFromEvent_ForGood" x:Name="__ReferenceID49">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">1335,1065</av:Point>
@@ -950,7 +986,7 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:LogMessage>
                     <FlowStep.Next>
-                      <FlowStep x:Name="__ReferenceID47">
+                      <FlowStep x:Name="__ReferenceID48">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">1545,1065</av:Point>
@@ -960,7 +996,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementBootcamp" ContinueOnError="False" DisplayName="Get Event" EntityId="3fd36113-419f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_16" OutputEntity="[CurrentBootcamp]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;Bootcamp_ID&quot;).ToString)]" TimeoutInMs="30000" />
                         <FlowStep.Next>
-                          <FlowStep x:Name="__ReferenceID46">
+                          <FlowStep x:Name="__ReferenceID47" sap2010:WorkflowViewState.IdRef="FlowStep_2">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <av:Point x:Key="ShapeLocation">1725,1065</av:Point>
@@ -970,7 +1006,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                             <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementEmployee" ContinueOnError="False" DisplayName="Get User" EntityId="c6b1668d-3e9f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_15" OutputEntity="[CurrentUser]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;UserID&quot;).ToString)]" TimeoutInMs="30000" />
                             <FlowStep.Next>
-                              <FlowStep x:Name="__ReferenceID45">
+                              <FlowStep x:Name="__ReferenceID46">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">1975,1065</av:Point>
@@ -980,7 +1016,7 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementBootcamp" ContinueOnError="False" DisplayName="Get Previous Event" EntityId="3fd36113-419f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_14" OutputEntity="[PreviousBootcamp]" RecordId="[Guid.Parse(CurrentUser.BootCampSessionID)]" TimeoutInMs="30000" />
                                 <FlowStep.Next>
-                                  <FlowStep x:Name="__ReferenceID44">
+                                  <FlowStep x:Name="__ReferenceID45">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">2145,1065</av:Point>
@@ -1004,7 +1040,7 @@
                                       </uda:UpdateEntityRecord.State>
                                     </uda:UpdateEntityRecord>
                                     <FlowStep.Next>
-                                      <FlowStep x:Name="__ReferenceID43">
+                                      <FlowStep x:Name="__ReferenceID44">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <av:Point x:Key="ShapeLocation">2345,1065</av:Point>
@@ -1048,7 +1084,7 @@
                                           </uda:UpdateEntityRecord.State>
                                         </uda:UpdateEntityRecord>
                                         <FlowStep.Next>
-                                          <FlowStep x:Name="__ReferenceID42">
+                                          <FlowStep x:Name="__ReferenceID43">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <av:Point x:Key="ShapeLocation">2545,1065</av:Point>
@@ -1069,16 +1105,17 @@
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:InvokeWorkflowFile>
                                             <FlowStep.Next>
-                                              <FlowStep x:Name="__ReferenceID41">
+                                              <FlowStep x:Name="__ReferenceID42">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <av:Point x:Key="ShapeLocation">2745,1065</av:Point>
                                                     <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                                    <av:PointCollection x:Key="ConnectorLocation">2800,1135 2800,1660 1125,1660</av:PointCollection>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Remove User From Channel" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Workflows\RemoveUserFromChannel.xaml">
                                                   <ui:InvokeWorkflowFile.Arguments>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_UserEmail">apereanu03@gmail.com</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_UserEmail">[CurrentUser.Email]</InArgument>
                                                     <InArgument x:TypeArguments="x:String" x:Key="in_ChannelID">[CurrentBootcamp.SlackChannelID]</InArgument>
                                                   </ui:InvokeWorkflowFile.Arguments>
                                                   <sap:WorkflowViewStateService.ViewState>
@@ -1087,6 +1124,9 @@
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                 </ui:InvokeWorkflowFile>
+                                                <FlowStep.Next>
+                                                  <x:Reference>__ReferenceID0</x:Reference>
+                                                </FlowStep.Next>
                                               </FlowStep>
                                             </FlowStep.Next>
                                           </FlowStep>
@@ -1105,7 +1145,7 @@
                 </FlowSwitch>
               </FlowDecision.True>
               <FlowDecision.False>
-                <FlowStep x:Name="__ReferenceID4">
+                <FlowStep x:Name="__ReferenceID5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">205,475</av:Point>
@@ -1126,11 +1166,11 @@
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
+    <x:Reference>__ReferenceID6</x:Reference>
     <FlowStep>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1147,7 +1187,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID11">
+        <FlowStep x:Name="__ReferenceID12">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">405,965</av:Point>
@@ -1157,7 +1197,7 @@
           </sap:WorkflowViewStateService.ViewState>
           <uda:GetEntityRecordById x:TypeArguments="n:NewHireManagementBootcamp" ContinueOnError="False" DisplayName="Get Event" EntityId="3fd36113-419f-f011-b3cd-002248a46af2" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetEntityRecordById`1_3" OutputEntity="[CurrentBootcamp]" RecordId="[Guid.Parse(TransactionItem.SpecificContent(&quot;Bootcamp_ID&quot;).ToString)]" TimeoutInMs="30000" />
           <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID12">
+            <FlowStep x:Name="__ReferenceID13" sap2010:WorkflowViewState.IdRef="FlowStep_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">405,1105</av:Point>
@@ -1181,8 +1221,8 @@
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID6</x:Reference>
     <x:Reference>__ReferenceID7</x:Reference>
+    <x:Reference>__ReferenceID8</x:Reference>
     <FlowStep>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1212,10 +1252,9 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:AddTransactionItem>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID2</x:Reference>
+        <x:Reference>__ReferenceID3</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID8</x:Reference>
     <x:Reference>__ReferenceID9</x:Reference>
     <x:Reference>__ReferenceID10</x:Reference>
     <x:Reference>__ReferenceID11</x:Reference>
@@ -1223,6 +1262,7 @@
     <x:Reference>__ReferenceID13</x:Reference>
     <x:Reference>__ReferenceID14</x:Reference>
     <x:Reference>__ReferenceID15</x:Reference>
+    <x:Reference>__ReferenceID16</x:Reference>
     <FlowStep>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1256,11 +1296,11 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:AddTransactionItem>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID2</x:Reference>
+        <x:Reference>__ReferenceID3</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID16</x:Reference>
     <x:Reference>__ReferenceID17</x:Reference>
+    <x:Reference>__ReferenceID18</x:Reference>
     <FlowStep>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1294,10 +1334,9 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:AddTransactionItem>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID2</x:Reference>
+        <x:Reference>__ReferenceID3</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID18</x:Reference>
     <x:Reference>__ReferenceID19</x:Reference>
     <x:Reference>__ReferenceID20</x:Reference>
     <x:Reference>__ReferenceID21</x:Reference>
@@ -1315,12 +1354,13 @@
     <x:Reference>__ReferenceID33</x:Reference>
     <x:Reference>__ReferenceID34</x:Reference>
     <x:Reference>__ReferenceID35</x:Reference>
-    <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID36</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID37</x:Reference>
     <x:Reference>__ReferenceID38</x:Reference>
     <x:Reference>__ReferenceID39</x:Reference>
     <x:Reference>__ReferenceID40</x:Reference>
+    <x:Reference>__ReferenceID41</x:Reference>
     <FlowStep>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1354,10 +1394,9 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:AddTransactionItem>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID2</x:Reference>
+        <x:Reference>__ReferenceID3</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID41</x:Reference>
     <x:Reference>__ReferenceID42</x:Reference>
     <x:Reference>__ReferenceID43</x:Reference>
     <x:Reference>__ReferenceID44</x:Reference>
@@ -1365,5 +1404,7 @@
     <x:Reference>__ReferenceID46</x:Reference>
     <x:Reference>__ReferenceID47</x:Reference>
     <x:Reference>__ReferenceID48</x:Reference>
+    <x:Reference>__ReferenceID49</x:Reference>
+    <x:Reference>__ReferenceID0</x:Reference>
   </Flowchart>
 </Activity>
