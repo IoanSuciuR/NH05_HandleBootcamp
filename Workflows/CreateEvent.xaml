@@ -111,7 +111,7 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreatEvent" sap:VirtualizedContainerService.HintSize="1160,2060" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CreatEvent" sap:VirtualizedContainerService.HintSize="513,2060" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="EmailBody" />
       <Variable x:TypeArguments="umcm:O365EventItem" Name="OutlookEvent" />
