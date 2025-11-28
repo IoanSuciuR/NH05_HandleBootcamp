@@ -96,7 +96,7 @@
       <AssemblyReference>NewHireBootcampQueue.CqOie2uVwtK1M8ABZ46q7EN2</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Main_Handle" sap:VirtualizedContainerService.HintSize="1506,1136.04" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Main_Handle" sap:VirtualizedContainerService.HintSize="1334,1136.04" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
       <Variable x:TypeArguments="ui:QueueItem" Name="TransactionItem" />
