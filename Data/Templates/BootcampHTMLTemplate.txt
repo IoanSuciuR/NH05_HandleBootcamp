@@ -6,7 +6,7 @@
 
     <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
 
-    <p>Congratulations! As part of the <strong>Sales New Hire onboarding bootcamp</strong>, you are invited to our <strong>in-person Immersion Workshop</strong> taking place <strong>[Add Dates]</strong> in Bucharest, Romania. The event will be hosted at the UiPath Office, Ground Floor - Training Room.</p>
+    <p>Congratulations! As part of the <strong>Sales New Hire onboarding bootcamp</strong>, you are invited to our <strong>in-person Immersion Workshop</strong> taking place <strong>[Add Date]</strong> in Bucharest, Romania. The event will be hosted at the UiPath Office, Ground Floor - Training Room.</p>
 
     <p>Please treat this as your <strong>personal invitation</strong> (do not forward), as space is limited.</p>
 

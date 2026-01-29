@@ -111,7 +111,7 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreatEvent" sap:VirtualizedContainerService.HintSize="1317,2153" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CreatEvent" sap:VirtualizedContainerService.HintSize="1415,2522" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="EmailBody" />
       <Variable x:TypeArguments="umcm:O365EventItem" Name="OutlookEvent" />
@@ -123,13 +123,15 @@
       <Variable x:TypeArguments="s:TimeOnly" Name="EndTime" />
       <Variable x:TypeArguments="x:String" Name="TimeZone" />
       <Variable x:TypeArguments="x:String" Name="EventName" />
+      <Variable x:TypeArguments="s:DateOnly" Name="Day1Start" />
+      <Variable x:TypeArguments="s:DateOnly" Name="Day4End" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Init event ids" sap:VirtualizedContainerService.HintSize="513,114" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign DisplayName="Init event ids" sap:VirtualizedContainerService.HintSize="513,175" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(x:String)">[out_OutlookEventIDs]</OutArgument>
       </Assign.To>
@@ -137,6 +139,26 @@
         <InArgument x:TypeArguments="scg:List(x:String)">[new List(Of String)]</InArgument>
       </Assign.Value>
     </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEventDates - Invoke Workflow File (Workflows\GetEventDates.xaml)" sap:VirtualizedContainerService.HintSize="513,182" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\GetEventDates.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_StartDate">[Day1Start]</OutArgument>
+        <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_EndDate" />
+        <OutArgument x:TypeArguments="s:TimeOnly" x:Key="out_StartTime" />
+        <OutArgument x:TypeArguments="s:TimeOnly" x:Key="out_EndTime" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_TimeAsString">[in_TransactionItem.SpecificContent("Day1Interval").ToString]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_TimeZone" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEventDates - Invoke Workflow File (Workflows\GetEventDates.xaml)" sap:VirtualizedContainerService.HintSize="513,182" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Workflows\GetEventDates.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_StartDate" />
+        <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_EndDate">[Day4End]</OutArgument>
+        <OutArgument x:TypeArguments="s:TimeOnly" x:Key="out_StartTime" />
+        <OutArgument x:TypeArguments="s:TimeOnly" x:Key="out_EndTime" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_TimeAsString">[in_TransactionItem.SpecificContent("Day4Interval").ToString]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_TimeZone" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
     <Sequence DisplayName="Handle Day 1" sap:VirtualizedContainerService.HintSize="513,57" sap2010:WorkflowViewState.IdRef="Sequence_8">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -144,7 +166,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEventDates - Invoke Workflow File (Workflows\GetEventDates.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\GetEventDates.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEventDates - Invoke Workflow File (Workflows\GetEventDates.xaml)" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\GetEventDates.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_StartDate">[StartDate]</OutArgument>
           <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_EndDate">[EndDate]</OutArgument>
@@ -154,8 +176,8 @@
           <OutArgument x:TypeArguments="x:String" x:Key="out_TimeZone">[TimeZone]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:ReadTextFile File="{x:Null}" Content="[EmailBody]" DisplayName="Read Event Body" FileName="Data\Templates\BootcampHTMLTemplate.txt" sap:VirtualizedContainerService.HintSize="479,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-      <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="479,303" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:ReadTextFile File="{x:Null}" Content="[EmailBody]" DisplayName="Read Event Body" FileName="Data\Templates\BootcampHTMLTemplate.txt" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+      <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="479,304" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -163,7 +185,7 @@
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " - " + EndDate.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",Day1Start.ToString("dd") + " - " + Day4End.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -171,7 +193,7 @@
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Start–End Time + Time Zone]", StartTime.ToString("HH:mm") + " - " + EndTime.ToString("HH:mm") + " "+ System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Day1Interval").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Date]", StartDate.ToString("dd") + " " + StartDate.ToString("MMM") + " : " + StartTime.ToString("HH:mm") + " - " + EndTime.ToString("HH:mm") + " "+ System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Day1Interval").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -195,7 +217,7 @@
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add StartDate]",Day1Start.ToString("dd") + " " + Day1Start.ToString("MMM"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -203,13 +225,13 @@
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add EndDate]",EndDate.ToString("dd") + " " + EndDate.ToString("MMM"))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add EndDate]",Day4End.ToString("dd") + " " + Day4End.ToString("MMM"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <Assign DisplayName="Set Name" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign DisplayName="Set Name" sap:VirtualizedContainerService.HintSize="479,175" sap2010:WorkflowViewState.IdRef="Assign_6">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[EventName]</OutArgument>
         </Assign.To>
@@ -223,7 +245,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Assign>
-      <If Condition="[Cbool(in_Config(&quot;TestMode&quot;))]" DisplayName="If Test Mode" sap:VirtualizedContainerService.HintSize="479,685" sap2010:WorkflowViewState.IdRef="If_2">
+      <If Condition="[Cbool(in_Config(&quot;TestMode&quot;))]" DisplayName="If Test Mode" sap:VirtualizedContainerService.HintSize="479,674" sap2010:WorkflowViewState.IdRef="If_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -231,7 +253,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -270,13 +292,13 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,490" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,510" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <umac:CreateEventConnections ArgumentAttachments="{x:Null}" Attachments="{x:Null}" BrowserGroupId="{x:Reference __ReferenceID3}" Calendar="{x:Null}" CalendarIdBackup="{x:Reference __ReferenceID2}" Categories="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Location="{x:Null}" MeetingUrl="{x:Null}" OptionalAttendees="{x:Null}" Recurrence="{x:Null}" ResourceAttendees="{x:Null}" AllDayEvent="False" AttachmentInputMode="Existing" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Calendar" BrowserCalendarGroupId="AQMkADNjMzEzNzFiLWUxY2EtNGI0OS04ZjRmLTJiMDI5MDY0ZTMyMABGAAADnuyQNGSzRkqE1TMon7LH5AcAHLgA1JU6kEeyeE5-3Gq7MAAAAgEGAAAAHLgA1JU6kEeyeE5-3Gq7MAAAAhzCAAAA" BrowserCalendarId="AQMkADNjMzEzNzFiLWUxY2EtNGI0OS04ZjRmLTJiMDI5MDY0ZTMyMABGAAADnuyQNGSzRkqE1TMon7LH5AcAHLgA1JU6kEeyeE5-3Gq7MAAAAgEGAAAAHLgA1JU6kEeyeE5-3Gq7MAABIXzaegAAAA==" CalendarInputMode="Browse" ConnectionId="57574e62-4112-4c1a-9f2b-65d378f24ff2" Description="[EmailBody]" DisplayName="Create Event" EndDateTime="[StartDate.ToDateTime(EndTime)]" sap:VirtualizedContainerService.HintSize="382,430" sap2010:WorkflowViewState.IdRef="CreateEventConnections_3" Importance="Normal" IsOnlineMeeting="False" PreferredReturnTimezone="[TimeZone]" RequiredAttendees="[{&quot;irina.catauta@uipath.com&quot;}]" Result="[OutlookEvent]" Sensitivity="Normal" ShowAs="Busy" StartDateTime="[StartDate.ToDateTime(StartTime)]" Timezone="[TimeZone]" Title="[EventName]" UseConnectionService="True">
+            <umac:CreateEventConnections ArgumentAttachments="{x:Null}" Attachments="{x:Null}" BrowserGroupId="{x:Reference __ReferenceID3}" Calendar="{x:Null}" CalendarIdBackup="{x:Reference __ReferenceID2}" Categories="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Location="{x:Null}" MeetingUrl="{x:Null}" OptionalAttendees="{x:Null}" Recurrence="{x:Null}" ResourceAttendees="{x:Null}" AllDayEvent="False" AttachmentInputMode="Existing" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Calendar" BrowserCalendarGroupId="AQMkADNjMzEzNzFiLWUxY2EtNGI0OS04ZjRmLTJiMDI5MDY0ZTMyMABGAAADnuyQNGSzRkqE1TMon7LH5AcAHLgA1JU6kEeyeE5-3Gq7MAAAAgEGAAAAHLgA1JU6kEeyeE5-3Gq7MAAAAhzCAAAA" BrowserCalendarId="AQMkADNjMzEzNzFiLWUxY2EtNGI0OS04ZjRmLTJiMDI5MDY0ZTMyMABGAAADnuyQNGSzRkqE1TMon7LH5AcAHLgA1JU6kEeyeE5-3Gq7MAAAAgEGAAAAHLgA1JU6kEeyeE5-3Gq7MAABIXzaegAAAA==" CalendarInputMode="Browse" ConnectionId="57574e62-4112-4c1a-9f2b-65d378f24ff2" Description="[EmailBody]" DisplayName="Create Event" EndDateTime="[StartDate.ToDateTime(EndTime)]" sap:VirtualizedContainerService.HintSize="416,446" sap2010:WorkflowViewState.IdRef="CreateEventConnections_3" Importance="Normal" IsOnlineMeeting="False" PreferredReturnTimezone="[TimeZone]" RequiredAttendees="[{&quot;irina.catauta@uipath.com&quot;}]" Result="[OutlookEvent]" Sensitivity="Normal" ShowAs="Busy" StartDateTime="[StartDate.ToDateTime(StartTime)]" Timezone="[TimeZone]" Title="[EventName]" UseConnectionService="True">
               <umac:CreateEventConnections.AttachmentsBackup>
                 <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
                   <usau:BackupSlot.BackupValues>
@@ -324,7 +346,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEventDates - Invoke Workflow File (Workflows\GetEventDates.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\GetEventDates.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEventDates - Invoke Workflow File (Workflows\GetEventDates.xaml)" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\GetEventDates.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_StartDate">[StartDate]</OutArgument>
           <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_EndDate">[EndDate]</OutArgument>
@@ -334,27 +356,27 @@
           <OutArgument x:TypeArguments="x:String" x:Key="out_TimeZone">[TimeZone]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:ReadTextFile File="{x:Null}" Content="[EmailBody]" DisplayName="Read Event Body" FileName="Data\Templates\BootcampHTMLTemplate.txt" sap:VirtualizedContainerService.HintSize="479,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
-      <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="479,303" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+      <ui:ReadTextFile File="{x:Null}" Content="[EmailBody]" DisplayName="Read Event Body" FileName="Data\Templates\BootcampHTMLTemplate.txt" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
+      <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="479,304" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_29">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " - " + EndDate.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",Day1Start.ToString("dd") + " - " + Day4End.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Start–End Time + Time Zone]", StartTime.ToString("HH:mm") + " - " + EndTime.ToString("HH:mm") + " "+ System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Day1Interval").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Date]", StartDate.ToString("dd") + " " + StartDate.ToString("MMM") + " : " + StartTime.ToString("HH:mm") + " - " + EndTime.ToString("HH:mm") + " "+ System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Day1Interval").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
@@ -362,7 +384,7 @@
                 <InArgument x:TypeArguments="x:String">[EmailBody.Replace("&lt;&lt;appURL&gt;&gt;",in_Config("URL_BootcampFilesApp").ToString)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
@@ -370,26 +392,26 @@
                 <InArgument x:TypeArguments="x:String">[EmailBody.Replace("&lt;&lt;faststartLink&gt;&gt;",in_Config("URL_FastPace").ToString)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add StartDate]",Day1Start.ToString("dd") + " " + Day1Start.ToString("MMM"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add EndDate]",EndDate.ToString("dd") + " " + EndDate.ToString("MMM"))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add EndDate]",Day4End.ToString("dd") + " " + Day4End.ToString("MMM"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <Assign DisplayName="Set Name" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign DisplayName="Set Name" sap:VirtualizedContainerService.HintSize="479,175" sap2010:WorkflowViewState.IdRef="Assign_7">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[EventName]</OutArgument>
         </Assign.To>
@@ -403,7 +425,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Assign>
-      <If Condition="[Cbool(in_Config(&quot;TestMode&quot;))]" DisplayName="If Test Mode" sap:VirtualizedContainerService.HintSize="479,685" sap2010:WorkflowViewState.IdRef="If_3">
+      <If Condition="[Cbool(in_Config(&quot;TestMode&quot;))]" DisplayName="If Test Mode" sap:VirtualizedContainerService.HintSize="479,674" sap2010:WorkflowViewState.IdRef="If_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -411,7 +433,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -450,13 +472,13 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,490" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,510" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <umac:CreateEventConnections ArgumentAttachments="{x:Null}" Attachments="{x:Null}" BrowserGroupId="{x:Reference __ReferenceID7}" Calendar="{x:Null}" CalendarIdBackup="{x:Reference __ReferenceID6}" Categories="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Location="{x:Null}" MeetingUrl="{x:Null}" OptionalAttendees="{x:Null}" Recurrence="{x:Null}" ResourceAttendees="{x:Null}" AllDayEvent="False" AttachmentInputMode="Existing" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Calendar" BrowserCalendarGroupId="AQMkADNjMzEzNzFiLWUxY2EtNGI0OS04ZjRmLTJiMDI5MDY0ZTMyMABGAAADnuyQNGSzRkqE1TMon7LH5AcAHLgA1JU6kEeyeE5-3Gq7MAAAAgEGAAAAHLgA1JU6kEeyeE5-3Gq7MAAAAhzCAAAA" BrowserCalendarId="AQMkADNjMzEzNzFiLWUxY2EtNGI0OS04ZjRmLTJiMDI5MDY0ZTMyMABGAAADnuyQNGSzRkqE1TMon7LH5AcAHLgA1JU6kEeyeE5-3Gq7MAAAAgEGAAAAHLgA1JU6kEeyeE5-3Gq7MAABIXzaegAAAA==" CalendarInputMode="Browse" ConnectionId="57574e62-4112-4c1a-9f2b-65d378f24ff2" Description="[EmailBody]" DisplayName="Create Event" EndDateTime="[StartDate.ToDateTime(EndTime)]" sap:VirtualizedContainerService.HintSize="382,430" sap2010:WorkflowViewState.IdRef="CreateEventConnections_5" Importance="Normal" IsOnlineMeeting="False" PreferredReturnTimezone="[TimeZone]" RequiredAttendees="[{&quot;irina.catauta@uipath.com&quot;}]" Result="[OutlookEvent]" Sensitivity="Normal" ShowAs="Busy" StartDateTime="[StartDate.ToDateTime(StartTime)]" Timezone="[TimeZone]" Title="[EventName]" UseConnectionService="True">
+            <umac:CreateEventConnections ArgumentAttachments="{x:Null}" Attachments="{x:Null}" BrowserGroupId="{x:Reference __ReferenceID7}" Calendar="{x:Null}" CalendarIdBackup="{x:Reference __ReferenceID6}" Categories="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Location="{x:Null}" MeetingUrl="{x:Null}" OptionalAttendees="{x:Null}" Recurrence="{x:Null}" ResourceAttendees="{x:Null}" AllDayEvent="False" AttachmentInputMode="Existing" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Calendar" BrowserCalendarGroupId="AQMkADNjMzEzNzFiLWUxY2EtNGI0OS04ZjRmLTJiMDI5MDY0ZTMyMABGAAADnuyQNGSzRkqE1TMon7LH5AcAHLgA1JU6kEeyeE5-3Gq7MAAAAgEGAAAAHLgA1JU6kEeyeE5-3Gq7MAAAAhzCAAAA" BrowserCalendarId="AQMkADNjMzEzNzFiLWUxY2EtNGI0OS04ZjRmLTJiMDI5MDY0ZTMyMABGAAADnuyQNGSzRkqE1TMon7LH5AcAHLgA1JU6kEeyeE5-3Gq7MAAAAgEGAAAAHLgA1JU6kEeyeE5-3Gq7MAABIXzaegAAAA==" CalendarInputMode="Browse" ConnectionId="57574e62-4112-4c1a-9f2b-65d378f24ff2" Description="[EmailBody]" DisplayName="Create Event" EndDateTime="[StartDate.ToDateTime(EndTime)]" sap:VirtualizedContainerService.HintSize="416,446" sap2010:WorkflowViewState.IdRef="CreateEventConnections_5" Importance="Normal" IsOnlineMeeting="False" PreferredReturnTimezone="[TimeZone]" RequiredAttendees="[{&quot;irina.catauta@uipath.com&quot;}]" Result="[OutlookEvent]" Sensitivity="Normal" ShowAs="Busy" StartDateTime="[StartDate.ToDateTime(StartTime)]" Timezone="[TimeZone]" Title="[EventName]" UseConnectionService="True">
               <umac:CreateEventConnections.AttachmentsBackup>
                 <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
                   <usau:BackupSlot.BackupValues>
@@ -504,7 +526,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEventDates - Invoke Workflow File (Workflows\GetEventDates.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\GetEventDates.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEventDates - Invoke Workflow File (Workflows\GetEventDates.xaml)" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\GetEventDates.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_StartDate">[StartDate]</OutArgument>
           <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_EndDate">[EndDate]</OutArgument>
@@ -514,27 +536,27 @@
           <OutArgument x:TypeArguments="x:String" x:Key="out_TimeZone">[TimeZone]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:ReadTextFile File="{x:Null}" Content="[EmailBody]" DisplayName="Read Event Body" FileName="Data\Templates\BootcampHTMLTemplate.txt" sap:VirtualizedContainerService.HintSize="479,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_3" />
-      <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="479,303" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+      <ui:ReadTextFile File="{x:Null}" Content="[EmailBody]" DisplayName="Read Event Body" FileName="Data\Templates\BootcampHTMLTemplate.txt" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="ReadTextFile_3" />
+      <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="479,304" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_35">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " - " + EndDate.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",Day1Start.ToString("dd") + " - " + Day4End.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Start–End Time + Time Zone]", StartTime.ToString("HH:mm") + " - " + EndTime.ToString("HH:mm") + " "+ System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Day1Interval").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Date]", StartDate.ToString("dd") + " " + StartDate.ToString("MMM") + " : " + StartTime.ToString("HH:mm") + " - " + EndTime.ToString("HH:mm") + " "+ System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Day1Interval").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
@@ -542,7 +564,7 @@
                 <InArgument x:TypeArguments="x:String">[EmailBody.Replace("&lt;&lt;appURL&gt;&gt;",in_Config("URL_BootcampFilesApp").ToString)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_38">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
@@ -550,26 +572,26 @@
                 <InArgument x:TypeArguments="x:String">[EmailBody.Replace("&lt;&lt;faststartLink&gt;&gt;",in_Config("URL_FastPace").ToString)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_39">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add StartDate]",Day1Start.ToString("dd") + " " + Day1Start.ToString("MMM"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_40">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add EndDate]",EndDate.ToString("dd") + " " + EndDate.ToString("MMM"))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add EndDate]",Day4End.ToString("dd") + " " + Day4End.ToString("MMM"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <Assign DisplayName="Set Name" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign DisplayName="Set Name" sap:VirtualizedContainerService.HintSize="479,175" sap2010:WorkflowViewState.IdRef="Assign_8">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[EventName]</OutArgument>
         </Assign.To>
@@ -583,7 +605,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Assign>
-      <If Condition="[Cbool(in_Config(&quot;TestMode&quot;))]" DisplayName="If Test Mode" sap:VirtualizedContainerService.HintSize="479,685" sap2010:WorkflowViewState.IdRef="If_4">
+      <If Condition="[Cbool(in_Config(&quot;TestMode&quot;))]" DisplayName="If Test Mode" sap:VirtualizedContainerService.HintSize="479,674" sap2010:WorkflowViewState.IdRef="If_4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -591,7 +613,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_16">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -630,13 +652,13 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,490" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,510" sap2010:WorkflowViewState.IdRef="Sequence_17">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <umac:CreateEventConnections ArgumentAttachments="{x:Null}" Attachments="{x:Null}" BrowserGroupId="{x:Reference __ReferenceID11}" Calendar="{x:Null}" CalendarIdBackup="{x:Reference __ReferenceID10}" Categories="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Location="{x:Null}" MeetingUrl="{x:Null}" OptionalAttendees="{x:Null}" Recurrence="{x:Null}" ResourceAttendees="{x:Null}" AllDayEvent="False" AttachmentInputMode="Existing" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Calendar" BrowserCalendarGroupId="AQMkADNjMzEzNzFiLWUxY2EtNGI0OS04ZjRmLTJiMDI5MDY0ZTMyMABGAAADnuyQNGSzRkqE1TMon7LH5AcAHLgA1JU6kEeyeE5-3Gq7MAAAAgEGAAAAHLgA1JU6kEeyeE5-3Gq7MAAAAhzCAAAA" BrowserCalendarId="AQMkADNjMzEzNzFiLWUxY2EtNGI0OS04ZjRmLTJiMDI5MDY0ZTMyMABGAAADnuyQNGSzRkqE1TMon7LH5AcAHLgA1JU6kEeyeE5-3Gq7MAAAAgEGAAAAHLgA1JU6kEeyeE5-3Gq7MAABIXzaegAAAA==" CalendarInputMode="Browse" ConnectionId="57574e62-4112-4c1a-9f2b-65d378f24ff2" Description="[EmailBody]" DisplayName="Create Event" EndDateTime="[StartDate.ToDateTime(EndTime)]" sap:VirtualizedContainerService.HintSize="382,430" sap2010:WorkflowViewState.IdRef="CreateEventConnections_8" Importance="Normal" IsOnlineMeeting="False" PreferredReturnTimezone="[TimeZone]" RequiredAttendees="[{&quot;irina.catauta@uipath.com&quot;}]" Result="[OutlookEvent]" Sensitivity="Normal" ShowAs="Busy" StartDateTime="[StartDate.ToDateTime(StartTime)]" Timezone="[TimeZone]" Title="[EventName]" UseConnectionService="True">
+            <umac:CreateEventConnections ArgumentAttachments="{x:Null}" Attachments="{x:Null}" BrowserGroupId="{x:Reference __ReferenceID11}" Calendar="{x:Null}" CalendarIdBackup="{x:Reference __ReferenceID10}" Categories="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Location="{x:Null}" MeetingUrl="{x:Null}" OptionalAttendees="{x:Null}" Recurrence="{x:Null}" ResourceAttendees="{x:Null}" AllDayEvent="False" AttachmentInputMode="Existing" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Calendar" BrowserCalendarGroupId="AQMkADNjMzEzNzFiLWUxY2EtNGI0OS04ZjRmLTJiMDI5MDY0ZTMyMABGAAADnuyQNGSzRkqE1TMon7LH5AcAHLgA1JU6kEeyeE5-3Gq7MAAAAgEGAAAAHLgA1JU6kEeyeE5-3Gq7MAAAAhzCAAAA" BrowserCalendarId="AQMkADNjMzEzNzFiLWUxY2EtNGI0OS04ZjRmLTJiMDI5MDY0ZTMyMABGAAADnuyQNGSzRkqE1TMon7LH5AcAHLgA1JU6kEeyeE5-3Gq7MAAAAgEGAAAAHLgA1JU6kEeyeE5-3Gq7MAABIXzaegAAAA==" CalendarInputMode="Browse" ConnectionId="57574e62-4112-4c1a-9f2b-65d378f24ff2" Description="[EmailBody]" DisplayName="Create Event" EndDateTime="[StartDate.ToDateTime(EndTime)]" sap:VirtualizedContainerService.HintSize="416,446" sap2010:WorkflowViewState.IdRef="CreateEventConnections_8" Importance="Normal" IsOnlineMeeting="False" PreferredReturnTimezone="[TimeZone]" RequiredAttendees="[{&quot;irina.catauta@uipath.com&quot;}]" Result="[OutlookEvent]" Sensitivity="Normal" ShowAs="Busy" StartDateTime="[StartDate.ToDateTime(StartTime)]" Timezone="[TimeZone]" Title="[EventName]" UseConnectionService="True">
               <umac:CreateEventConnections.AttachmentsBackup>
                 <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
                   <usau:BackupSlot.BackupValues>
@@ -677,14 +699,14 @@
         </sap:WorkflowViewStateService.ViewState>
       </uasa:AppendItemToList>
     </Sequence>
-    <Sequence DisplayName="Handle Day 4" sap:VirtualizedContainerService.HintSize="513,1624" sap2010:WorkflowViewState.IdRef="Sequence_15">
+    <Sequence DisplayName="Handle Day 4" sap:VirtualizedContainerService.HintSize="513,1568" sap2010:WorkflowViewState.IdRef="Sequence_15">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEventDates - Invoke Workflow File (Workflows\GetEventDates.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\GetEventDates.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEventDates - Invoke Workflow File (Workflows\GetEventDates.xaml)" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\GetEventDates.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_StartDate">[StartDate]</OutArgument>
           <OutArgument x:TypeArguments="s:DateOnly" x:Key="out_EndDate">[EndDate]</OutArgument>
@@ -694,27 +716,27 @@
           <OutArgument x:TypeArguments="x:String" x:Key="out_TimeZone">[TimeZone]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:ReadTextFile File="{x:Null}" Content="[EmailBody]" DisplayName="Read Event Body" FileName="Data\Templates\BootcampHTMLTemplate.txt" sap:VirtualizedContainerService.HintSize="479,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_4" />
-      <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="479,396" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+      <ui:ReadTextFile File="{x:Null}" Content="[EmailBody]" DisplayName="Read Event Body" FileName="Data\Templates\BootcampHTMLTemplate.txt" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="ReadTextFile_4" />
+      <ui:MultipleAssign DisplayName="Add Details to Body" sap:VirtualizedContainerService.HintSize="479,304" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
         <ui:MultipleAssign.AssignOperations>
-          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_41">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Date]",StartDate.ToString("dd") + " - " + EndDate.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",Day1Start.ToString("dd") + " - " + Day4End.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_42">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Start–End Time + Time Zone]", StartTime.ToString("HH:mm") + " - " + EndTime.ToString("HH:mm") + " "+ System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Day1Interval").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Date]", StartDate.ToString("dd") + " " + StartDate.ToString("MMM") + " : " + StartTime.ToString("HH:mm") + " - " + EndTime.ToString("HH:mm") + " "+ System.Text.RegularExpressions.Regex.Match(in_TransactionItem.SpecificContent("Day1Interval").ToString, "\(?(UTC[+\-]?\d+)\)?").Groups(1).Value)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_43">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
@@ -722,7 +744,7 @@
                 <InArgument x:TypeArguments="x:String">[EmailBody.Replace("&lt;&lt;appURL&gt;&gt;",in_Config("URL_BootcampFilesApp").ToString)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_44">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
@@ -730,50 +752,26 @@
                 <InArgument x:TypeArguments="x:String">[EmailBody.Replace("&lt;&lt;faststartLink&gt;&gt;",in_Config("URL_FastPace").ToString)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_45">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add Dates]",StartDate.ToString("dd") + " " + StartDate.ToString("MMM"))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add StartDate]",Day1Start.ToString("dd") + " " + Day1Start.ToString("MMM"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_46">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add EndDate]",EndDate.ToString("dd") + " " + EndDate.ToString("MMM"))]</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[2:00 PM]",StartTime.ToString("HH:mm"))]</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add StartDate]",StartDate.ToString("dd - MMM"))]</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[EmailBody]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add EndDate]",EndDate.ToString("dd - MMM"))]</InArgument>
+                <InArgument x:TypeArguments="x:String">[EmailBody.Replace("[Add EndDate]",Day4End.ToString("dd") + " " + Day4End.ToString("MMM"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <Assign DisplayName="Set Name" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign DisplayName="Set Name" sap:VirtualizedContainerService.HintSize="479,175" sap2010:WorkflowViewState.IdRef="Assign_9">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[EventName]</OutArgument>
         </Assign.To>
@@ -787,7 +785,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Assign>
-      <If Condition="[Cbool(in_Config(&quot;TestMode&quot;))]" DisplayName="If Test Mode" sap:VirtualizedContainerService.HintSize="479,685" sap2010:WorkflowViewState.IdRef="If_5">
+      <If Condition="[Cbool(in_Config(&quot;TestMode&quot;))]" DisplayName="If Test Mode" sap:VirtualizedContainerService.HintSize="479,654" sap2010:WorkflowViewState.IdRef="If_5">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
