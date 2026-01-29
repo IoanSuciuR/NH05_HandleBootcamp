@@ -1,0 +1,6 @@
+{
+  "Name": "NH05_HandleBootcamp",
+  "ProjectType": "Process",
+  "Description": "Blank Process",
+  "MainFile": "Main_Handle.xaml"
+}

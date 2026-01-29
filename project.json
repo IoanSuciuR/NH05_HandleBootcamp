@@ -16,14 +16,12 @@
   "entitiesStores": [
     {
       "serviceDocument": ".entities/EntitiesStore.json",
-      "tenantName": "CXE_Automation",
-      "namespace": "NH04_HandleVirtualEvent",
-      "uniqueReference": "W2MPokJdE9HbnMETB7M/6qJTHB9eWrB7hql+6f86qc0="
+      "namespace": "NH04_HandleVirtualEvent"
     }
   ],
   "schemaVersion": "4.0",
   "studioVersion": "24.10.16.0",
-  "projectVersion": "1.0.3",
+  "projectVersion": "1.0.4",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -46,7 +44,6 @@
     "projectProfile": "Developement",
     "outputType": "Process",
     "libraryOptions": {
-      "includeOriginalXaml": false,
       "privateWorkflows": []
     },
     "processOptions": {
