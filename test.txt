@@ -1,12 +1,12 @@
 <html>
   <body style="font-family: 'Segoe UI', Arial, sans-serif; color: #333333; line-height: 1.6;">
     <h2 style="color:#FF6A00;">New Hire - Immersion Workshop (INTERNATIONAL)</h2>
-    <p><strong>Dates: 08 Dec</strong> </p>
+    <p><strong>Dates: 12 - 15 of January</strong> </p>
     <p><strong>Location:</strong> UiPath Office, Ground Floor - Training Room, Bucharest, Romania</p>
 
     <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
 
-    <p>Congratulations! As part of the <strong>Sales New Hire onboarding bootcamp</strong>, you are invited to our <strong>in-person Immersion Workshop</strong> taking place <strong>08 Dec</strong> in Bucharest, Romania. The event will be hosted at the UiPath Office, Ground Floor - Training Room.</p>
+    <p>Congratulations! As part of the <strong>Sales New Hire onboarding bootcamp</strong>, you are invited to our <strong>in-person Immersion Workshop</strong> taking place <strong>12 - 15 of January</strong> in Bucharest, Romania. The event will be hosted at the UiPath Office, Ground Floor - Training Room.</p>
 
     <p>Please treat this as your <strong>personal invitation</strong> (do not forward), as space is limited.</p>
 
@@ -20,8 +20,8 @@
 
     <h3 style="color:#FF6A00;">Timing (travel planning):</h3>
     <ul>
-      <li>The bootcamp starts at <strong>15:00</strong> on <strong>08 - Dec</strong> → plan to arrive by Monday morning <strong>08 - Dec</strong>.</li>
-      <li>Return flights should be scheduled for Friday, <strong>11 Dec</strong>.</li>
+      <li>The bootcamp starts at <strong>15:00</strong> on <strong>12 - January</strong> → plan to arrive by Monday morning <strong>12 - January</strong>.</li>
+      <li>Return flights should be scheduled for Friday, <strong>16 - January</strong>.</li>
       <li><em>Tip:</em> use Friday morning for intros with local colleagues, stakeholders, and support functions.</li>
     </ul>
 
